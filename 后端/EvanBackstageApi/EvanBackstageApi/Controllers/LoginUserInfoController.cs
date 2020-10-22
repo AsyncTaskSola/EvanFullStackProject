@@ -31,6 +31,7 @@ namespace EvanBackstageApi.Controllers
         [HttpPost("GetInfo")]
         public async Task<ResultModel<LoginUserInfo>> GetInfo()
         {
+            var aa = HttpContext.User;
             var accesstoken= HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
             var result= _unitOfWork.GetInfo(accesstoken);
             //var result =await _db.Queryable<LoginUserInfo>().Where(x => x.AccessToken == accesstoken).FirstAsync();

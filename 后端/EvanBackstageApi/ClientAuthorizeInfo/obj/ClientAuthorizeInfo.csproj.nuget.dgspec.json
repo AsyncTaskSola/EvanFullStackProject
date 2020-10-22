@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj": {}
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
         "projectName": "ClientAuthorizeInfo",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj",
         "projectName": "EvanBackstageApi.Entity",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -150,14 +150,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj",
         "projectName": "EvanBackstageApi.IRepository",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -176,8 +176,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
               }
             }
           }
@@ -216,14 +216,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj",
         "projectName": "EvanBackstageApi.IService",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -242,8 +242,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
               }
             }
           }
@@ -278,14 +278,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
         "projectName": "EvanBackstageApi.Repository",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -304,11 +304,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
               }
             }
           }
@@ -351,14 +351,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj",
         "projectName": "EvanBackstageApi.Service",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -377,14 +377,14 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj"
               }
             }
           }
@@ -419,14 +419,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj",
         "projectName": "EvanBackstageApi",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -445,20 +445,20 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Entity\\EvanBackstageApi.Entity.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IRepository\\EvanBackstageApi.IRepository.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.IService\\EvanBackstageApi.IService.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj"
               },
-              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj"
+              "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Service\\EvanBackstageApi.Service.csproj"
               }
             }
           }

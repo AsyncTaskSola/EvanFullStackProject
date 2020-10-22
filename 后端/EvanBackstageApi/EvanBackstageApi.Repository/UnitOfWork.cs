@@ -1,7 +1,6 @@
 ﻿using EvanBackstageApi.Entity.UserInfo;
 using EvanBackstageApi.IRepository;
 using Microsoft.Extensions.Configuration;
-using MySqlX.XDevAPI.Common;
 using SqlSugar;
 using System;
 using System.Collections.Generic;

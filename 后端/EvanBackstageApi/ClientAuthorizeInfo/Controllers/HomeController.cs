@@ -39,7 +39,8 @@ namespace ClientAuthorizeInfo.Controllers
         /// <returns></returns>
         [Authorize]
         public async Task<ResultModel<Dictionary<string, object>>> AccessApi1()
-        {          
+        {
+            var dd = User;
             var result = User.IsInRole("管理员");
             Expression<Func<LoginUserInfo, bool>> exp = w => true;
             var info = Run();

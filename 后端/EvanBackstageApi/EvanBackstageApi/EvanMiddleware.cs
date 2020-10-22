@@ -21,6 +21,8 @@ namespace EvanBackstageApi
 
         public Task Invoke(HttpContext httpContext)
         {
+            //var r= httpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+            //httpContext.User =;
             var result = httpContext.User.Identities.Select(x=>x.Name).FirstOrDefault();
             string displayUrl = httpContext.Request.Host.ToString()+ "/Home/AccessApi1";
             if (result==""||result==null)

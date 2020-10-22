@@ -7972,11 +7972,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
       "projectName": "ClientAuthorizeInfo",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -7995,8 +7995,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
+            "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
             }
           }
         }

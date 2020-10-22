@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F6GXCLCxe6LWgws45kIxazOlwqxIkqLBqRLo0B3RtufScJkkuNm6LYgJZ/s/g6FdBkcv1AlZ/UNTvHN9P90Shg==",
+  "dgSpecHash": "hJn3pmEK+lKBW8wXSMLegXGwl5I4l3+Mk63YwBWzKeuaI23TbR2bXiDBTDyAj0oH/vsuuDfQ5+iGJP3C+PrdJA==",
   "success": true,
-  "projectFilePath": "D:\\Dotnet\\Idp\\Idp.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\Idp\\Idp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\aspnet.security.oauth.github\\3.1.4\\aspnet.security.oauth.github.3.1.4.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\identitymodel\\4.3.0\\identitymodel.4.3.0.nupkg.sha512",

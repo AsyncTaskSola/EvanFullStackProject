@@ -12,7 +12,7 @@ namespace EvanBackstageApi.Entity.CEG
         /// <summary>
         /// employee Id
         /// </summary>
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public Guid CompanyId { get; set; }
         public string EmplyeeNo { get; set; }
         public string FirstName { get; set; }

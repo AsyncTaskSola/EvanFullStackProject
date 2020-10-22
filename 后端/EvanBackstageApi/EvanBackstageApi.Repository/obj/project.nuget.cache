@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gig0bZNeRa1Fgl+5ckH3tbOU8mZFCrIvx79pvNA0ZQPUepKnuqumzG0RgCqK5QI11btxkFRJDK/Go2RaEz1ovQ==",
+  "dgSpecHash": "oV/yOsTh338EmK92D078N2ryDAM/WXuZvd3K4Ffzyw8OEaylP7cd+FbaWmQ3QvB0LaATz2RrpcI/Dp7809aRNQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi.Repository\\EvanBackstageApi.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\google.protobuf\\3.5.1\\google.protobuf.3.5.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",

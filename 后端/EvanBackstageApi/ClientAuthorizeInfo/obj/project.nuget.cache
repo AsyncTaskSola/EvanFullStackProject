@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5eyiLr6Qs/0c8OrpULHB/m4q4YJfu20pkrPIE4M7Hjg5MmXJjjQYEO/rJli/L+D/+PigwF8npKPnTWwFrqiAYQ==",
+  "dgSpecHash": "YlZtEClWqTybIW3WCF55wzGwTxW0/65BptLC1jMnaquYzIZ8aUe1UvURslh+C2wnxsd91nTncGQmeD+w9QHMfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\google.protobuf\\3.5.1\\google.protobuf.3.5.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",

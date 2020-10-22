@@ -14,7 +14,7 @@ namespace EvanBackstageApi.IService
         Task<bool> Delete(TEntity entity);
         Task<bool> DeleteById(object id);
         Task<bool> DeleteById(TEntity entity, Expression<Func<TEntity, bool>> expression);
-        Task<bool> DeleteByIds(object[] ids);
+        Task<bool> DeleteByIds(List<Guid> ids);
         Task<List<TEntity>> Query();
         Task<List<TEntity>> Query(Expression<Func<TEntity, bool>> whereExpression);
 

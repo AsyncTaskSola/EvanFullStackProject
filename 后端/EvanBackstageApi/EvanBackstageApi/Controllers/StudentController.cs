@@ -123,7 +123,7 @@ namespace EvanBackstageApi.Controllers
         /// <param name="ids"></param>
         /// <returns></returns>
         [HttpGet("DeleteByIds")]
-        public async Task<ResultModel<Student>> DeleteByIds(object[] ids)
+        public async Task<ResultModel<Student>> DeleteByIds(List<Guid> ids)
         {
             try
             {

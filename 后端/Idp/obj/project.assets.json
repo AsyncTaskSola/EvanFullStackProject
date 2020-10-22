@@ -3773,11 +3773,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dotnet\\Idp\\Idp.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\Idp\\Idp.csproj",
       "projectName": "Idp",
-      "projectPath": "D:\\Dotnet\\Idp\\Idp.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\Idp\\Idp.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Dotnet\\Idp\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\Idp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

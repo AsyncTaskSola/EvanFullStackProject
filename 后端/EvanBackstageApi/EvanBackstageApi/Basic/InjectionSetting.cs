@@ -7,10 +7,6 @@ using EvanBackstageApi.Repository.CEGRepository;
 using EvanBackstageApi.Service;
 using EvanBackstageApi.Service.CEGService;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EvanBackstageApi.Basic
 {
@@ -25,6 +21,13 @@ namespace EvanBackstageApi.Basic
 
             services.AddScoped<ICompaniesService, CompaniesService>();
             services.AddScoped<ICompaniesRepository, CompaniesRepository>();
+
+            services.AddScoped<IEmployeesService, EmployeesService>();
+            services.AddScoped<IEmployeesRepository, EmployeesRepository>();
+
+            services.AddScoped<IV_CompanyEmployeeInfoServices, V_CompanyEmployeeInfoServices>();
+            services.AddScoped<IV_CompanyEmployeeInfoRepository, V_CompanyEmployeeInfoRepository>();
+           
         }
     }
 }
