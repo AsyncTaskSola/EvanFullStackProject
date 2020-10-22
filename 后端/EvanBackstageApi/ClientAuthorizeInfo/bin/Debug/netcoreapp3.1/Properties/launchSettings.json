@@ -1,0 +1,14 @@
+﻿{
+
+  "profiles": {
+    "ClientAuthorizeInfo": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "Home/AccessApi1",
+      "applicationUrl": "http://localhost:7000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

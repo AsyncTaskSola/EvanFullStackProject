@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EvanBackstageApi.IRepository\EvanBackstageApi.IRepository.csproj" />
+    <ProjectReference Include="..\EvanBackstageApi.IService\EvanBackstageApi.IService.csproj" />
+    <ProjectReference Include="..\EvanBackstageApi.Repository\EvanBackstageApi.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
