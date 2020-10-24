@@ -32,7 +32,6 @@ namespace EvanBackstageApi.Repository
         {
             return await _db.Insertable(entity).ExecuteReturnIdentityAsync();
         }
-
         /// <summary>
         /// 批量添加
         /// </summary>
@@ -97,7 +96,7 @@ namespace EvanBackstageApi.Repository
         /// </summary>
         /// <param name="ids">主键ID集合</param>
         /// <returns></returns>
-        public async Task<bool> DeleteByIds(object[] ids)
+        public async Task<bool> DeleteByIds(List<Guid> ids)
         {
             return await _db.Deleteable<TEntity>().In(ids).ExecuteCommandHasChangeAsync();
         }
@@ -207,6 +206,10 @@ namespace EvanBackstageApi.Repository
             return await _db.Updateable(entity).Where(whereExpression).ExecuteCommandHasChangeAsync();
         }
 
+
+
+
+
         /// <summary>
         /// 功能描述:分页查询 + 条件查询 + 排序
         /// </summary>
@@ -228,6 +231,26 @@ namespace EvanBackstageApi.Repository
                 .OrderByIF(!string.IsNullOrEmpty(strOrderByFileds), strOrderByFileds)
                 .WhereIF(whereLambda != null, whereLambda)
                 .ToPageList(intPageIndex, intPageSize);
+        }
+
+        /// <summary>
+        /// 删除实体并根据指定的条件
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="whereLambda"></param>
+        /// <returns></returns>
+        public int DeleteEntity(TEntity entity, Expression<Func<TEntity, bool>> whereLambda)
+        {
+            return _db.Deleteable(entity).Where(whereLambda).ExecuteCommand();
+        }
+        /// <summary>
+        /// 更加条件查到实体，并且是第一条数据
+        /// </summary>
+        /// <param name="whereExpression"></param>
+        /// <returns></returns>
+        public async Task<TEntity>QueryFirst(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            return await _db.Queryable<TEntity>().Where(whereExpression).FirstAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using EvanBackstageApi.Entity.UserInfo;
+﻿using EvanBackstageApi.Entity.CEG;
+using EvanBackstageApi.Entity.UserInfo;
 using EvanBackstageApi.IRepository;
 using Microsoft.Extensions.Configuration;
 using SqlSugar;
@@ -27,7 +28,8 @@ namespace EvanBackstageApi.Repository
                 {
                     ConnectionString = _configuration["SqlConnect:Sql"],
                     DbType = DbType.SqlServer,
-                    IsAutoCloseConnection = true
+                    IsAutoCloseConnection = true,
+                    InitKeyType = InitKeyType.Attribute  // Attribute用于DbFirst  从数据库生成model的
                 }
             );
             _sqlSugarClient.Aop.OnLogExecuting = (sql, pars) =>
@@ -43,6 +45,21 @@ namespace EvanBackstageApi.Repository
             loginUserInfo.CurrentTime = resultNew.DateTimeStart;
             return loginUserInfo;
         }
+        //code first 创建表字段(但需要自定义参数约束，有需求可以用)
+        public void CreateTable(bool Backup = false, int StringDefaultLength = 100, params Type[] types)
+        {
+            _sqlSugarClient.CodeFirst.SetStringDefaultLength(StringDefaultLength);
+            _sqlSugarClient.DbMaintenance.CreateDatabase();
+            if (Backup)
+            {
+                _sqlSugarClient.CodeFirst.BackupTable().InitTables(types);
+            }
+            else
+            {
+                _sqlSugarClient.CodeFirst.InitTables(types);
+            }
+        }
+        public SimpleClient<Employee> EmployeeDb { get { return new SimpleClient<Employee>(_sqlSugarClient); } }
         public ISqlSugarClient GetDbClient()
         {
 

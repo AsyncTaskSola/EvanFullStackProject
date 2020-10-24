@@ -42,7 +42,7 @@ namespace EvanBackstageApi.Service
             return await BaseDal.DeleteById(entity, expression);
         }
 
-        public async Task<bool> DeleteByIds(object[] ids)
+        public async Task<bool> DeleteByIds(List<Guid> ids)
         {
             return await BaseDal.DeleteByIds(ids);
         }
@@ -100,6 +100,15 @@ namespace EvanBackstageApi.Service
         public async Task<bool> Update(TEntity entity, Expression<Func<TEntity, bool>> whereExpression)
         {
             return await BaseDal.Update(entity, whereExpression);
+        }
+
+        public int DeleteEntity(TEntity entity, Expression<Func<TEntity, bool>> whereLambda)
+        {
+            return BaseDal.DeleteEntity(entity, whereLambda);
+        }
+        public async Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            return await BaseDal.QueryFirst(whereExpression);
         }
     }
 

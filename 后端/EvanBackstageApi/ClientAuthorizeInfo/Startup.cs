@@ -1,5 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using ClientAuthorizeInfo.Connected;
+using EvanBackstageApi.IRepository;
+using EvanBackstageApi.Repository;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;

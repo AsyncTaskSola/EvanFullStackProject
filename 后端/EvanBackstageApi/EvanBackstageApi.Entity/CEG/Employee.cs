@@ -12,7 +12,9 @@ namespace EvanBackstageApi.Entity.CEG
         /// <summary>
         /// employee Id
         /// </summary>
-        //public Guid Id { get; set; }
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
+        public Guid Id { get; set; }
+  
         public Guid CompanyId { get; set; }
         public string EmplyeeNo { get; set; }
         public string FirstName { get; set; }
@@ -20,7 +22,11 @@ namespace EvanBackstageApi.Entity.CEG
 
         public Gender Gender { get; set; }
         public DateTime DateofBirth { get; set; }
-        [SugarColumn(IsIgnore = true), NotMapped]
-        public Company Company { get; set; }
+        /// <summary>
+        /// 业绩
+        /// </summary>
+        public int? Performance { get; set; }
+        //[SugarColumn(IsIgnore = true), NotMapped]
+        //public Company Company { get; set; }
     }
 }
