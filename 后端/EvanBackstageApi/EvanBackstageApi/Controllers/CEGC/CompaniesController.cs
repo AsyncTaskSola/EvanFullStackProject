@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace EvanBackstageApi.Controllers.CEGC
@@ -23,80 +23,152 @@ namespace EvanBackstageApi.Controllers.CEGC
         private readonly ICompaniesService _iCompaniesService;
         private readonly IEmployeesService _employeesService;
         private readonly IV_CompanyEmployeeInfoServices _iv_CompanyEmployeeInfoServices;
-        public LoginUserInfo UserInfo;
-        
+        public static LoginUserInfo UserInfo;
+
         public CompaniesController(ICompaniesService companiesService,
             IEmployeesService employeesService,
             IV_CompanyEmployeeInfoServices v_CompanyEmployeeInfoServices)
         {
             _iCompaniesService = companiesService;
             _employeesService = employeesService;
+            //_employeesService.CreateTable(false, 1000, typeof(Employee));
             _iv_CompanyEmployeeInfoServices = v_CompanyEmployeeInfoServices;
             log.Info("进入到控制器CompaniesController");
         }
         /// <summary>
-        /// 添加公司 Id可以不填，后台自动生成
+        /// 添加公司 或者其下的员工
         /// </summary>
         /// <param name="Companies"></param>
         /// <returns></returns>
         [HttpPost("Add")]
         public async Task<ResultModel<List<Company>>> Add([FromBody] List<Company> Companies)
-        {        
+        {
+
+            try
+            {
+                Companies.ForEach(async item =>
+                {
+                    if (item.Name == null) throw new Exception("公司名必填");
+                    var employee = item.Emplyees as List<Employee>;
+
+                    //var result = await _iCompaniesService.Add(Companies);
+                    var result =await _iCompaniesService.Add(new Company { Id=item.Id,Introduction=item.Introduction,Name=item.Name});
+                    _employeesService.Add(employee);
+                });
+            }
+            catch
+            {
+                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "添加失败", Data = Companies };
+            }
+            return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "添加成功", Data = Companies };
+
+
+        }
+        /// <summary>
+        /// 查询 翻页+排序(公司和员工【两者都要有】）)
+        /// </summary>
+        /// <param name="pageSize">显示条数（需要前端定的）<</param>
+        /// <param name="pageindex">第几页<</param>
+        /// <returns></returns>
+        [HttpGet("GetCompaniesEmployeeInfo")] 
+        [Authorize]
+        public async Task<ResultModel<List<V_CompanyEmployeeInfo>>> GetCompaniesEmployeeInfo(int pageSize, int pageindex)
+        {
+            var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+            UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
+            int t = 0;
+            Expression<Func<V_CompanyEmployeeInfo, bool>> exp = c => true;
+            List<V_CompanyEmployeeInfo> result = _iv_CompanyEmployeeInfoServices.Query(exp, pageindex, pageSize, "", out t).ToList();
+            return new ResultModel<List<V_CompanyEmployeeInfo>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+        }
+
+        /// <summary>
+        /// 获取所有公司
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetCompanies")]
+        public async Task<ResultModel<List<Company>>>GetCompanies(int pageSize, int pageindex)
+        {
+            int t = 0;
+            Expression<Func<Company, bool>> exp = c => true;
+            List<Company> result = _iCompaniesService.Query(exp, pageindex, pageSize, "", out t).ToList();
+            return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+        }
+        /// <summary>
+        /// 根据公司id删除 公司和其下的员工
+        /// </summary>
+        /// <param name="CompanyIds"></param>
+        /// <returns></returns>
+
+        [Authorize]
+        [HttpPost("Delete")]
+        public async Task<ResultModel<List<Company>>> Delete([FromBody] Guid[] CompanyIds)
+        {
             if (UserInfo.Role == "管理员")
             {
                 try
                 {
-                    Companies.ForEach(async item =>
+                    CompanyIds.ToList().ForEach(async i =>
                     {
-                        if (item.Name == null) throw new Exception("公司名必填");
-                        var employee = item.Emplyees as List<Employee>;
-                        var result = await _iCompaniesService.Add(Companies);
-                        _employeesService.Add(employee);                       
+                        //因为做了外键关联必须先删除子表，再删除主表的
+                        var employees = _employeesService.Query(x => x.CompanyId == i);
+                        employees.Result.ForEach(o =>
+                        {
+                            _employeesService.DeleteEntity(o, x => true);
+                        });
+                        await _iCompaniesService.DeleteById(i);
                     });
+                    return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "删除成功" };
                 }
-                catch
+                catch (Exception e)
                 {
-                    return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "添加失败", Data = Companies };
+                    return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "删除失败" };
                 }
-                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "添加成功", Data = Companies };
             }
-            return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "没有相对于的权限", Data = Companies };
+            return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
-        /// <summary>
-        /// 获取companies和其下的员工数据,等于原来的GetToEdit
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("GetCompanies")]
-        public async Task<ResultModel<List<V_CompanyEmployeeInfo>>> GetCompanies()
+       /// <summary>
+       /// 编辑数据
+       /// </summary>
+       /// <param name="company"></param>
+       /// <returns></returns>
+       [Authorize]
+       [HttpPost("Upload")]
+        public async Task<ResultModel<Company>> Upload([FromBody] Company company)
         {
-            var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
-            UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
-            var result= await _iv_CompanyEmployeeInfoServices.Query();
-            return new ResultModel<List<V_CompanyEmployeeInfo>> { State = ResultType.Success.ToString(), Message = "查询成功" ,Data=result};
+            if (UserInfo.Role == "管理员")
+            {
+                try
+                {
+                    await _iCompaniesService.Update(company,x=>x.Id==company.Id);
+                    return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "更新成功" };
+                }
+                catch (Exception e)
+                {
+                    return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "更新失败" };
+                }
+            }
+            return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
 
-        [Authorize]
-        [HttpPost("Delete")]
-        public async Task<ResultModel<List<Company>>> Delete([FromBody] List<Guid> CompanyIds)
+        /// <summary>
+        /// 根据名称模糊查询相关公司
+        /// </summary>
+        /// <param name="companyName"></param>
+        /// <returns></returns>
+
+        [HttpGet("QueryCompany")]
+        public async Task<ResultModel<List<Company>>> Upload(string companyName)
         {
             try
             {
-                CompanyIds.ForEach(async i =>
-                {
-                    //因为做了外键关联必须先删除子表，再删除主表的
-                    var employees = await _employeesService.Query(x => x.CompanyId == i);
-                    var companyids = employees.Select(x => x.CompanyId).ToList();
-                    await _employeesService.DeleteByIds(companyids);
-                    await _iCompaniesService.DeleteById(i);
-                });
-                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "删除成功" };
+                var result= await _iCompaniesService.Query(x => x.Name.Contains(companyName));
+                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功",Data=result };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "删除失败" };
+                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
             }
         }
-
-
     }
 }

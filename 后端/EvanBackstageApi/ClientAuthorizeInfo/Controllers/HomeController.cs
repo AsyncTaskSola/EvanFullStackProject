@@ -1,4 +1,5 @@
-﻿using ClientAuthorizeInfo.Connected;
+﻿
+using ClientAuthorizeInfo.Connected;
 using EvanBackstageApi.Basic;
 using EvanBackstageApi.Entity.UserInfo;
 using IdentityModel;
@@ -31,7 +32,7 @@ namespace ClientAuthorizeInfo.Controllers
         {
 
             _LoginUserInfoRepository = LoginUserInfoRepository;
-            //_LoginUserInfoRepository.Create(loginUserInfo);
+            //_LoginUserInfoRepository.Create(false,100,typeof(LoginUserInfo));
         }
         /// <summary>
         /// 与授权服务器交互，获取accessToken 访问Api是否有权限操作

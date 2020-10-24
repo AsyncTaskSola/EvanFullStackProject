@@ -15,6 +15,7 @@ namespace EvanBackstageApi.Controllers
     /// <summary>
     /// 基本参考 （部分延伸条件不写出）
     /// </summary>
+    #region 作废
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
@@ -209,4 +210,6 @@ namespace EvanBackstageApi.Controllers
             return new ResultModel<Student> { State = ResultType.Success.ToString(), Message = "查询成功" };
         }
     }
+    #endregion
+
 }

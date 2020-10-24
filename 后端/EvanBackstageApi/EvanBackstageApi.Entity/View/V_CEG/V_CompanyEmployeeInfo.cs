@@ -7,6 +7,7 @@ using System.Text;
 
 namespace EvanBackstageApi.Entity.View.V_CEG
 {
+    [SugarTable("View_CompanyEmployeeInfo")]
     public class V_CompanyEmployeeInfo
     {
         /// <summary>

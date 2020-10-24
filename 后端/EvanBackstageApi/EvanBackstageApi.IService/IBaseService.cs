@@ -39,5 +39,7 @@ namespace EvanBackstageApi.IService
             int intPageSize,
             string strOrderByFileds,
             out int intTotalCount);
+        int DeleteEntity(TEntity entity, Expression<Func<TEntity, bool>> whereLambda);
+        Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpression);
     }
 }
