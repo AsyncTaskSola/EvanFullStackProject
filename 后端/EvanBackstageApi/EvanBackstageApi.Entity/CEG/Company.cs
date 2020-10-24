@@ -12,6 +12,7 @@ namespace EvanBackstageApi.Entity.CEG
         /// <summary>
         /// 公司id
         /// </summary>
+        [SugarColumn(IsPrimaryKey = true)]
         public Guid Id { get; set; }
         public string Name { get; set; }
         /// <summary>

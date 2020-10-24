@@ -15,5 +15,6 @@ namespace EvanBackstageApi.IRepository
         void CommitTran();
         void RollbackTran();
         LoginUserInfo GetInfo(string accessToken);
+        void CreateTable(bool Backup = false, int StringDefaultLength = 100, params Type[] types);
     }
 }
