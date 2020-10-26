@@ -5,7 +5,6 @@ using EvanBackstageApi.IRepository.ICEGRepository;
 using EvanBackstageApi.IService.ICEGService;
 using EvanBackstageApi.Repository.CEGRepository;
 using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace EvanBackstageApi.Service.CEGService
