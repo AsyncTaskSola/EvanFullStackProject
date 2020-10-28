@@ -25,6 +25,7 @@
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Users\\Administrator\\Desktop\\打印接口\\SmartLight.DqtErp.Print\\Nugets": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

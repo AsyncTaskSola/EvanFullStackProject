@@ -55,7 +55,8 @@ namespace EvanBackstageApi.Basic
         /// 错误对象
         /// </summary>
         public dynamic Error { get; set; }
+        //总数
 
-        public int? Rows { get; set; }
+        public int? Total { get; set; }
     }
 }

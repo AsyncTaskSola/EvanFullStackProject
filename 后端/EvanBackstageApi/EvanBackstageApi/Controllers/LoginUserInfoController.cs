@@ -1,14 +1,12 @@
 ﻿using EvanBackstageApi.Basic;
 using EvanBackstageApi.Entity.UserInfo;
 using EvanBackstageApi.IRepository;
-using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace EvanBackstageApi.Controllers
@@ -34,10 +32,23 @@ namespace EvanBackstageApi.Controllers
             var aa = HttpContext.User;
             var accesstoken= HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
             var result= _unitOfWork.GetInfo(accesstoken);
-            //var result =await _db.Queryable<LoginUserInfo>().Where(x => x.AccessToken == accesstoken).FirstAsync();
-            //var resultNew= await _db.Queryable<LoginUserInfo>().Where(x => x.AccessToken == accesstoken).OrderBy(x=>x.DateTimeStart,OrderByType.Desc).FirstAsync();
-            //result.CurrentTime = resultNew.DateTimeStart;
             return new ResultModel<LoginUserInfo> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+        }
+        /// <summary>
+        /// 查看所有登陆信息记录
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetLoginInfo")]
+        public async Task<ResultModel<List<LoginUserInfo>>> GetLoginInfo(int pageSize, int pageindex)
+        {
+            var resultNew = _db.Queryable<LoginUserInfo>().ToList();
+            int t = 0;
+            Expression<Func<LoginUserInfo, bool>> exp = c => true;
+            List<LoginUserInfo> result = _db.Queryable<LoginUserInfo>()
+           .OrderByIF(!string.IsNullOrEmpty(""), "")
+           .WhereIF(exp != null, exp)
+           .ToPageList(pageindex, pageSize);
+            return new ResultModel<List<LoginUserInfo>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
         }
     }
 }

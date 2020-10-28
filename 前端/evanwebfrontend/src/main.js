@@ -10,6 +10,17 @@ import './assets/css/global.css'
 //配置全局的axios，挂载在原型上
 import axios from 'axios'
 axios.defaults.baseURL='http://localhost:6001'
+
+//请求拦截器
+axios.interceptors.request.use(config=>{
+  if(!sessionStorage.getItem('Authorization'))
+  {
+    console.log("请求拦截器",config);  
+    return config;
+  }
+  config.headers.Authorization = sessionStorage.getItem('Authorization');
+  return config;
+})
 Vue.prototype.$http=axios
 
 Vue.config.productionTip = false

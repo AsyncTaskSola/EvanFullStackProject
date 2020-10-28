@@ -134,9 +134,9 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompaniesEmployeeInfo(System.Int32,System.Int32)" -->
-        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompanies(System.Int32,System.Int32)">
+        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompanies(System.Int32,System.Int32,System.String)">
             <summary>
-            获取所有公司
+            获取所有公司，根据名称模糊查询相关公司
             </summary>
             <returns></returns>
         </member>
@@ -152,13 +152,6 @@
             编辑数据
             </summary>
             <param name="company"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.Upload(System.String)">
-            <summary>
-            根据名称模糊查询相关公司
-            </summary>
-            <param name="companyName"></param>
             <returns></returns>
         </member>
         <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.GetEmployees(System.Int32,System.Int32)">
@@ -214,73 +207,10 @@
             单独处理不走仓储,客户登陆接口信息查看，限死
             </summary>
         </member>
-        <member name="T:EvanBackstageApi.Controllers.StudentController">
+        <member name="M:EvanBackstageApi.Controllers.LoginUserInfoController.GetLoginInfo(System.Int32,System.Int32)">
             <summary>
-            基本参考 （部分延伸条件不写出）
+            查看所有登陆信息记录
             </summary>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.Add(EvanBackstageApi.Entity.Student)">
-            <summary>
-            单体添加
-            </summary>
-            <param name="student"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.AddList(System.Collections.Generic.List{EvanBackstageApi.Entity.Student})">
-            <summary>
-            批量添加
-            </summary>
-            <param name="students"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.Delete(EvanBackstageApi.Entity.Student)">
-            <summary>
-            单体删除
-            </summary>
-            <param name="student"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.DeleteById(System.Int32)">
-            <summary>
-            根据id去删除
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.DeleteByIds(System.Collections.Generic.List{System.Guid})">
-            <summary>
-            批量更新
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.Update(EvanBackstageApi.Entity.Student)">
-            <summary>
-            单体更新
-            </summary>
-            <param name="student"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.UpdateList(System.Collections.Generic.List{EvanBackstageApi.Entity.Student})">
-            <summary>
-            批量更新
-            </summary>
-            <param name="students"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.Query(System.Int32,System.Int32)">
-            <summary>
-            查询 翻页+排序
-            </summary>
-            <param name="pageSize">显示条数（需要前端定的）</param>
-            <param name="pageindex">第几页</param>
-            <returns></returns>
-        </member>
-        <member name="M:EvanBackstageApi.Controllers.StudentController.GetToEdit(System.Int32)">
-            <summary>
-            指定 id条件查询
-            </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:EvanBackstageApi.EvanMiddleware">

@@ -16,6 +16,7 @@ namespace EvanBackstageApi.Controllers.CEGC
 {
     [ApiController]
     [Area("CEGC")]
+    [Authorize]
     [Route("api/[area]/[controller]")]
     public class CompaniesController : ControllerBase
     {
@@ -70,8 +71,7 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// <param name="pageSize">显示条数（需要前端定的）<</param>
         /// <param name="pageindex">第几页<</param>
         /// <returns></returns>
-        [HttpGet("GetCompaniesEmployeeInfo")] 
-        [Authorize]
+        [HttpGet("GetCompaniesEmployeeInfo")]        
         public async Task<ResultModel<List<V_CompanyEmployeeInfo>>> GetCompaniesEmployeeInfo(int pageSize, int pageindex)
         {
             var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
@@ -83,16 +83,35 @@ namespace EvanBackstageApi.Controllers.CEGC
         }
 
         /// <summary>
-        /// 获取所有公司
+        /// 获取所有公司，根据名称模糊查询相关公司
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetCompanies")]
-        public async Task<ResultModel<List<Company>>>GetCompanies(int pageSize, int pageindex)
+        public async Task<ResultModel<List<Company>>>GetCompanies(int pageSize, int pageindex,string querycompanyName)
         {
-            int t = 0;
-            Expression<Func<Company, bool>> exp = c => true;
-            List<Company> result = _iCompaniesService.Query(exp, pageindex, pageSize, "", out t).ToList();
-            return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+            try
+            {
+                var result = new List<Company>();
+                int t = 0;
+                if (querycompanyName == "" || querycompanyName == null)
+                {
+                    var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+                    UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
+                    //int t = 0;
+                    Expression<Func<Company, bool>> exp = c => true;
+                    result = _iCompaniesService.Query(exp, pageindex, pageSize, "", out t).ToList();
+                }
+                else
+                {
+                    result = await _iCompaniesService.Query(x => x.Name.Contains(querycompanyName));
+                    return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+                }
+                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result, Total = t };
+            }
+            catch (Exception)
+            {
+                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
+            }           
         }
         /// <summary>
         /// 根据公司id删除 公司和其下的员工
@@ -100,7 +119,6 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// <param name="CompanyIds"></param>
         /// <returns></returns>
 
-        [Authorize]
         [HttpPost("Delete")]
         public async Task<ResultModel<List<Company>>> Delete([FromBody] Guid[] CompanyIds)
         {
@@ -132,7 +150,6 @@ namespace EvanBackstageApi.Controllers.CEGC
        /// </summary>
        /// <param name="company"></param>
        /// <returns></returns>
-       [Authorize]
        [HttpPost("Upload")]
         public async Task<ResultModel<Company>> Upload([FromBody] Company company)
         {
@@ -157,18 +174,18 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// <param name="companyName"></param>
         /// <returns></returns>
 
-        [HttpGet("QueryCompany")]
-        public async Task<ResultModel<List<Company>>> Upload(string companyName)
-        {
-            try
-            {
-                var result= await _iCompaniesService.Query(x => x.Name.Contains(companyName));
-                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功",Data=result };
-            }
-            catch (Exception ex)
-            {
-                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
-            }
-        }
+        //[HttpGet("QueryCompany")]
+        //public async Task<ResultModel<List<Company>>> QueryCompany(string companyName)
+        //{
+        //    try
+        //    {
+        //        var result= await _iCompaniesService.Query(x => x.Name.Contains(companyName));
+        //        return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功",Data=result };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
+        //    }
+        //}
     }
 }

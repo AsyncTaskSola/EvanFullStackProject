@@ -94,17 +94,24 @@ export default {
             )
             .then((res) => {
               console.log(res);
+              //保存在session里面
+              sessionStorage.setItem("Authorization", `Bearer ${this.loginForm.password}`);
               if (!res) {
-                return this.$message.error("请输入正确数据");
+                return this.$message.error("请输入正确的账号和AccessToken");
               }
-              this.loginForm.username = res.data.data.username;
-              if ((res.data.status != 200)) {
-                console.log("登陆失败");
+              //   this.loginForm.username = res.data.data.username;
+              if (res.data.data.username !== this.loginForm.username) {
+                return this.$message.error("请输入正确的账号和AccessToken");
               }
+              if (res.status != 200) {
+                return this.$message.error("登陆失败");
+              }
+              this.$message.success("登陆成功");
+              this.$router.push("/Home");
             })
             .catch((err) => {
               if (err.message.indexOf("401") !== -1) {
-                console.log("accessToken不正确或已过期");
+                return this.$message.error("accessToken不正确或已过期");
               }
             });
         }
