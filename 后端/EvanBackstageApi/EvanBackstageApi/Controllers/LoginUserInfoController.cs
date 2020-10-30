@@ -39,16 +39,25 @@ namespace EvanBackstageApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetLoginInfo")]
-        public async Task<ResultModel<List<LoginUserInfo>>> GetLoginInfo(int pageSize, int pageindex)
+        public async Task<ResultModel<List<LoginUserInfo>>> GetLoginInfo(int pageSize, int pageindex, string oderyFont)
         {
-            var resultNew = _db.Queryable<LoginUserInfo>().ToList();
-            int t = 0;
-            Expression<Func<LoginUserInfo, bool>> exp = c => true;
-            List<LoginUserInfo> result = _db.Queryable<LoginUserInfo>()
-           .OrderByIF(!string.IsNullOrEmpty(""), "")
-           .WhereIF(exp != null, exp)
-           .ToPageList(pageindex, pageSize);
-            return new ResultModel<List<LoginUserInfo>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+            try
+            {
+                var resultNew = _db.Queryable<LoginUserInfo>().ToList();
+                int t = 0;
+                Expression<Func<LoginUserInfo, bool>> exp = c => true;
+                List<LoginUserInfo> result = _db.Queryable<LoginUserInfo>()
+               .OrderByIF(!string.IsNullOrEmpty(oderyFont), oderyFont)
+               .WhereIF(exp != null, exp)
+               .ToPageList(pageindex, pageSize);
+                return new ResultModel<List<LoginUserInfo>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result, Total = t };
+            }
+            catch (Exception)
+            {
+
+                return new ResultModel<List<LoginUserInfo>> { State = ResultType.Error.ToString(), Message = "查询失败"};
+            }
+            
         }
     }
 }

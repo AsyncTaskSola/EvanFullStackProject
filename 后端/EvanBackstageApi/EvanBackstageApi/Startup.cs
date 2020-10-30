@@ -155,7 +155,7 @@ namespace EvanBackstageApi
                     License = new OpenApiLicense
                     {
                         Name = "Git AsyncTask(Evan)",
-                        Url = new Uri("https://github.com/AsyncTaskSola/CedenWebHome"),
+                        Url = new Uri("https://github.com/AsyncTaskSola/EvanFullStackProject"),
                     },
                     Contact = new OpenApiContact
                     {

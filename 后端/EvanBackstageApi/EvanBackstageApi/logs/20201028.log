@@ -107,3 +107,9 @@
 2020-10-28 18:59:08,419 [45] INFO  CompaniesController - 进入到控制器CompaniesController
 2020-10-28 18:59:10,018 [51] INFO  CompaniesController - 进入到控制器CompaniesController
 2020-10-28 19:03:04,742 [56] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:43:41,597 [20] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:44:10,198 [21] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:45:02,737 [27] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:46:27,846 [25] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:46:44,698 [26] INFO  CompaniesController - 进入到控制器CompaniesController
+2020-10-28 19:46:54,951 [33] INFO  CompaniesController - 进入到控制器CompaniesController

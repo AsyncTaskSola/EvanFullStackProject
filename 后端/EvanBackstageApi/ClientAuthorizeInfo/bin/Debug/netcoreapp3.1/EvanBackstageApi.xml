@@ -134,7 +134,7 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompaniesEmployeeInfo(System.Int32,System.Int32)" -->
-        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompanies(System.Int32,System.Int32,System.String)">
+        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompanies(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             获取所有公司，根据名称模糊查询相关公司
             </summary>
@@ -147,14 +147,21 @@
             <param name="CompanyIds"></param>
             <returns></returns>
         </member>
-        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.Upload(EvanBackstageApi.Entity.CEG.Company)">
+        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.Update(EvanBackstageApi.Entity.CEG.Company)">
             <summary>
             编辑数据
             </summary>
             <param name="company"></param>
             <returns></returns>
         </member>
-        <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.GetEmployees(System.Int32,System.Int32)">
+        <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.UpdateId(System.Guid)">
+            <summary>
+            查询指定的数据
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.GetEmployees(System.Int32,System.Int32,System.String)">
             <summary>
             查询所有员工人员
             </summary>
@@ -190,13 +197,6 @@
             <param name="employee"></param>
             <returns></returns>
         </member>
-        <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.Upload(System.String)">
-            <summary>
-            根据名称模糊查询相关员工
-            </summary>
-            <param name="employeeName"></param>
-            <returns></returns>
-        </member>
         <member name="T:EvanBackstageApi.Controllers.IdentityController">
             <summary>
             只用于判断accessToken bearjwt是否还有效，如果无效需要重新刷新token了 不要请求
@@ -207,7 +207,7 @@
             单独处理不走仓储,客户登陆接口信息查看，限死
             </summary>
         </member>
-        <member name="M:EvanBackstageApi.Controllers.LoginUserInfoController.GetLoginInfo(System.Int32,System.Int32)">
+        <member name="M:EvanBackstageApi.Controllers.LoginUserInfoController.GetLoginInfo(System.Int32,System.Int32,System.String)">
             <summary>
             查看所有登陆信息记录
             </summary>

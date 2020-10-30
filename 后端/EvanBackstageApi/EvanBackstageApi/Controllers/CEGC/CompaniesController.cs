@@ -52,8 +52,7 @@ namespace EvanBackstageApi.Controllers.CEGC
                     if (item.Name == null) throw new Exception("公司名必填");
                     var employee = item.Emplyees as List<Employee>;
 
-                    //var result = await _iCompaniesService.Add(Companies);
-                    var result =await _iCompaniesService.Add(new Company { Id=item.Id,Introduction=item.Introduction,Name=item.Name});
+                    var result =await _iCompaniesService.Add(new Company { Id=item.Id,Introduction=item.Introduction,Name=item.Name,CompanyEmail=item.CompanyEmail,CompanyPhone=item.CompanyPhone,CurrentTime= item.CurrentTime });
                     _employeesService.Add(employee);
                 });
             }
@@ -68,7 +67,7 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// <summary>
         /// 查询 翻页+排序(公司和员工【两者都要有】）)
         /// </summary>
-        /// <param name="pageSize">显示条数（需要前端定的）<</param>
+        /// <param name="pageSize">显示条数（需要前端定的）</param>
         /// <param name="pageindex">第几页<</param>
         /// <returns></returns>
         [HttpGet("GetCompaniesEmployeeInfo")]        
@@ -87,7 +86,7 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetCompanies")]
-        public async Task<ResultModel<List<Company>>>GetCompanies(int pageSize, int pageindex,string querycompanyName)
+        public async Task<ResultModel<List<Company>>>GetCompanies(int pageSize, int pageindex,string querycompanyName,string oderyFont)
         {
             try
             {
@@ -99,7 +98,7 @@ namespace EvanBackstageApi.Controllers.CEGC
                     UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
                     //int t = 0;
                     Expression<Func<Company, bool>> exp = c => true;
-                    result = _iCompaniesService.Query(exp, pageindex, pageSize, "", out t).ToList();
+                    result = _iCompaniesService.Query(exp, pageindex, pageSize, oderyFont, out t).ToList();
                 }
                 else
                 {
@@ -150,8 +149,8 @@ namespace EvanBackstageApi.Controllers.CEGC
        /// </summary>
        /// <param name="company"></param>
        /// <returns></returns>
-       [HttpPost("Upload")]
-        public async Task<ResultModel<Company>> Upload([FromBody] Company company)
+       [HttpPost("Update")]
+        public async Task<ResultModel<Company>> Update([FromBody] Company company)
         {
             if (UserInfo.Role == "管理员")
             {
@@ -167,6 +166,31 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
+        /// <summary>
+        /// 查询指定的数据
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <returns></returns>
+        [HttpGet("UpdateId")]
+        public async Task<ResultModel<Company>> UpdateId(Guid companyId)
+        {
+            if (UserInfo.Role == "管理员")
+            {
+                try
+                {
+                    var UpdateDate= await _iCompaniesService.QueryFirst(x => x.Id == companyId);
+                    return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "查询当前数据成功", Data = UpdateDate };
+                }
+                catch (Exception e)
+                {
+                    return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "查询当前数据成功" };
+                }
+            }
+            return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
+        }
+
+
+
 
         /// <summary>
         /// 根据名称模糊查询相关公司

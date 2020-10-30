@@ -19,6 +19,18 @@ namespace EvanBackstageApi.Entity.CEG
         /// 简介
         /// </summary>
         public string Introduction { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CurrentTime { get; set; }
+        /// <summary>
+        /// 公司邮箱
+        /// </summary>
+        public string CompanyEmail { get; set; }
+        /// <summary>
+        /// 公司联系方式
+        /// </summary>
+        public string CompanyPhone { get; set; }
         [SugarColumn(IsIgnore = true), NotMapped]
         public IEnumerable<Employee> Emplyees { get; set; }
     }
