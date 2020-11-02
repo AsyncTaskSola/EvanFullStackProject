@@ -9,6 +9,7 @@ namespace EvanBackstageApi.Entity.UserInfo
     [SugarTable("LoginUserInfo")]
     public class LoginUserInfo
     {
+        [SugarColumn(IsPrimaryKey = true)]
         public Guid ID { get; set; }
         //获取登陆信息(仅管理员查看)
         public string PrivacyUrl { get; set; }
@@ -19,6 +20,8 @@ namespace EvanBackstageApi.Entity.UserInfo
         //[Column(TypeName = "text")]
         public string AccessToken { get; set; }
         public DateTime DateTimeStart { get; set; }
+
+        public string RefreshToken { get; set; }
 
         [SugarColumn(IsIgnore = true), NotMapped]
         //最近使用的当前时间

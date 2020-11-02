@@ -41,5 +41,7 @@ namespace EvanBackstageApi.IRepository
             out int intTotalCount);
         int DeleteEntity(TEntity entity, Expression<Func<TEntity, bool>> whereLambda);
         Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpression);
+
+        Task<bool> Update(List<TEntity> listEntities, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, bool>> whereExpression2);
     }
 }
