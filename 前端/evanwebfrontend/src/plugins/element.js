@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button,Form,FormItem,Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup, MenuItem,RadioButton,RadioGroup,Breadcrumb,BreadcrumbItem,Card,Table,TableColumn,Row,Col,Pagination,Tooltip,Dialog,MessageBox} from 'element-ui'
+import { Button,Form,FormItem,Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup, MenuItem,RadioButton,RadioGroup,Breadcrumb,BreadcrumbItem,Card,Table,TableColumn,Row,Col,Pagination,Tooltip,Dialog,MessageBox,Switch} from 'element-ui'
 
 //弹框提示
 import{Message} from 'element-ui'
@@ -27,6 +27,8 @@ Vue.use(Col)
 Vue.use(Pagination)
 Vue.use(Tooltip)
 Vue.use(Dialog)
+Vue.use(Switch)
 //全局挂载
 Vue.prototype.$message=Message
+//Messagebox弹窗
 Vue.prototype.$confirm=MessageBox.confirm

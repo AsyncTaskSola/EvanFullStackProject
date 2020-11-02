@@ -41,36 +41,65 @@ namespace ClientAuthorizeInfo.Controllers
         [Authorize]
         public async Task<ResultModel<Dictionary<string, object>>> AccessApi1()
         {
-            var dd = User;
-            var result = User.IsInRole("管理员");
-            Expression<Func<LoginUserInfo, bool>> exp = w => true;
-            var info = Run();
-            var client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5001");
-            if (disco.IsError)
+            var info = new Dictionary<string,object>();
+            try
             {
-                throw new Exception();
-            }
-            loginUserInfo.AccessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
-            loginUserInfo.DateTimeStart = DateTime.Now;
-            loginUserInfo.ID = Guid.NewGuid();
-            await _LoginUserInfoRepository.Add(loginUserInfo);
-
-            info.Add("accessToken", loginUserInfo.AccessToken);
-            client.SetBearerToken(loginUserInfo.AccessToken);
-            var response = await client.GetAsync("http://localhost:6001/identity");
-            if (!response.IsSuccessStatusCode)
-            {
-                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                var result = User.IsInRole("管理员");
+                Expression<Func<LoginUserInfo, bool>> exp = w => true;
+                Expression<Func<LoginUserInfo, bool>> exp2 = x => true;
+                var client = new HttpClient();
+                var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5001");
+                if (disco.IsError)
                 {
-                    loginUserInfo.AccessToken = await RenewTokensAsync();//重新获取accessToken
-                    info.Remove("accessToken");
-                    info.Add("重新获取accessToken", loginUserInfo.AccessToken);
-                    await _LoginUserInfoRepository.Add(loginUserInfo);
-
-                    return new ResultModel<Dictionary<string, object>> { State = ResultType.Success.ToString(), Message = "成功", Data = info };
+                    throw new Exception();
                 }
-                throw new Exception(response.ReasonPhrase);
+                info = Run();
+                loginUserInfo.AccessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+                loginUserInfo.DateTimeStart = DateTime.Now;
+                loginUserInfo.ID = Guid.NewGuid();
+                info.Add("accessToken", loginUserInfo.AccessToken);
+                client.SetBearerToken(loginUserInfo.AccessToken);
+                var response = await client.GetAsync("http://localhost:6001/identity");
+                if (!response.IsSuccessStatusCode)
+                {
+
+                    if (response.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        info.Add("IsAuthenticated", loginUserInfo.IsAuthenticated);
+                        var newvule = await RenewTokensAsync();
+                        loginUserInfo.RefreshToken = newvule.Split('|')[0];
+                        loginUserInfo.AccessToken = newvule.Split('|')[1];
+                        info.Remove("accessToken");
+                        info.Add("重新获取accessToken", loginUserInfo.AccessToken);
+                        info.Add("获取RefreshToken", loginUserInfo.RefreshToken);
+                        await _LoginUserInfoRepository.Add(loginUserInfo);
+                        //在获取新的token时候应该把原有的accesstoken状态更新为过期也就是loginUserInfo.IsAuthenticated:flase 来做判断                
+                        var listuserinfo = await _LoginUserInfoRepository.Query(exp, x => x.DateTimeStart, false);
+                        exp = x => x.ID != loginUserInfo.ID;
+                        exp2 = w => w.IsAuthenticated == false;
+                        await _LoginUserInfoRepository.Update(listuserinfo, exp, exp2);
+                        return new ResultModel<Dictionary<string, object>> { State = ResultType.Success.ToString(), Message = "成功", Data = info };
+                    }
+                    throw new Exception(response.ReasonPhrase);
+                }
+                else
+                {
+                    info.Add("IsAuthenticated", loginUserInfo.IsAuthenticated);
+                    //是否再次插入应该根据数据库是否包含这条AccessToken，保证唯一
+                    var results = await _LoginUserInfoRepository.Query(x => x.AccessToken == loginUserInfo.AccessToken);
+                    if(results.Count==0)
+                    {
+                        await _LoginUserInfoRepository.Add(loginUserInfo);
+                    }                 
+                }
+            }
+            catch (Exception)
+            {
+                return new ResultModel<Dictionary<string, object>>
+                {
+                    State = ResultType.Success.ToString(),
+                    Message = "失败"
+                };
             }
             return new ResultModel<Dictionary<string, object>> { State = ResultType.Success.ToString(), Message = "成功", Data = info };
         }
@@ -84,16 +113,6 @@ namespace ClientAuthorizeInfo.Controllers
             loginUserInfo.Username = User.Identities.Select(x => x.Name).First();
             var roleinfo = User.Identities.Select(x => x.Claims).First().Select(x => x.Value).ToList();
             loginUserInfo.Role = User.FindFirstValue(JwtClaimTypes.Role);
-            //var role = "";
-            //try
-            //{
-            //    role = roleinfo[8];
-            //}
-            //catch (Exception)
-            //{
-            //    role = "";
-            //} 
-            listinfo.Add("IsAuthenticated", loginUserInfo.IsAuthenticated);
             listinfo.Add("AuthenticationType", loginUserInfo.AuthenticationType);
             listinfo.Add("username", loginUserInfo.Username);
             listinfo.Add("role", loginUserInfo.Role);
@@ -135,7 +154,6 @@ namespace ClientAuthorizeInfo.Controllers
                 throw new Exception();
             }
             var RefreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
-
             //获取新的toke用的  refresh token
             var tokenResponse = await client.RequestRefreshTokenAsync(new RefreshTokenRequest
             {
@@ -187,7 +205,7 @@ namespace ClientAuthorizeInfo.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     currentAuthenticateResult.Principal, currentAuthenticateResult.Properties);
 
-                return tokenResponse.RefreshToken;
+                return tokenResponse.RefreshToken+'|'+tokenResponse.AccessToken;
             }
         }
     }

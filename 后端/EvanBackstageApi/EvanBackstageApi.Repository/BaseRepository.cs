@@ -185,6 +185,17 @@ namespace EvanBackstageApi.Repository
         }
 
         /// <summary>
+        /// 批量更新（新加约束）2020.11.02
+        /// </summary>
+        /// <param name="listEntities"></param>
+        /// <param name="whereExpression"></param>
+        /// <returns></returns>
+        public async Task<bool> Update(List<TEntity> listEntities, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, bool>> whereExpression2)
+        {
+            return await _db.Updateable(listEntities).Where(whereExpression).SetColumns(whereExpression2).ExecuteCommandHasChangeAsync();
+        }
+
+        /// <summary>
         /// 更新约束，除开列 可以写C=>C.Name=="****"
         /// </summary>
         /// <param name="entity"></param>

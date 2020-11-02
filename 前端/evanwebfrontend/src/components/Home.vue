@@ -198,4 +198,7 @@ export default {
   flex: 1;
   border-right: 0;
 }
+.el-main{
+  padding: 8px;;
+}
 </style>

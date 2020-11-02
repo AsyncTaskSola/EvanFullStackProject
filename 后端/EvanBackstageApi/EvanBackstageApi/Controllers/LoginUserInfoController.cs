@@ -44,7 +44,7 @@ namespace EvanBackstageApi.Controllers
             try
             {
                 var resultNew = _db.Queryable<LoginUserInfo>().ToList();
-                int t = 0;
+                int t = _db.Queryable<LoginUserInfo>().Count();
                 Expression<Func<LoginUserInfo, bool>> exp = c => true;
                 List<LoginUserInfo> result = _db.Queryable<LoginUserInfo>()
                .OrderByIF(!string.IsNullOrEmpty(oderyFont), oderyFont)
