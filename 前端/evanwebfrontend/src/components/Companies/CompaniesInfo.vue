@@ -447,6 +447,7 @@ export default {
 .Data {
   margin-top: 30px;
 }
+
 /deep/.el-input.is-disabled .el-input__inner {
   background-color: antiquewhite;
   border-color: white;

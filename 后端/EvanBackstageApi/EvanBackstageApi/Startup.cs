@@ -112,9 +112,9 @@ namespace EvanBackstageApi
                      {
                          ValidateAudience = false
                      };
-
-                     //token 验证时间是30分钟
-                     options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(30);
+                     options.Audience = "api1";
+                     //token 验证时间是20分钟
+                     options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(20);
                      options.TokenValidationParameters.RequireExpirationTime = true;
                  });
 

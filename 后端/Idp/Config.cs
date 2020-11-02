@@ -148,7 +148,7 @@ namespace Idp
                     },
 
                     AllowOfflineAccess = true,  //使用refresh token
-                    AccessTokenLifetime = 1800, // 1800 seconds
+                    AccessTokenLifetime = 1200, // 1200 seconds
                     AlwaysIncludeUserClaimsInIdToken = true,//useclaim添加到id_token里面 个人喜好  要把jwt的cliam映射给关闭
 
                     //默认是jwt token  现在改成reference token
