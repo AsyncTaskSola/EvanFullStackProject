@@ -14,6 +14,8 @@ const UsersInfo = () =>
   import('@/components/Users/UsersInfo.vue')
 const CompaniesInfo = () =>
   import('@/components/Companies/CompaniesInfo.vue')
+const EmployeesInfo = () =>
+  import('@/components/Employees/EmployeesInfo.vue')
 Vue.use(VueRouter)
 
 
@@ -42,6 +44,8 @@ const router = new VueRouter({
       },
       {
         path: "/CompaniesInfo", component: CompaniesInfo
+      }, {
+        path: "/EmployeesInfo", component: EmployeesInfo
       }]
   },]
 })

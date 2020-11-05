@@ -4,9 +4,7 @@ using EvanBackstageApi.IRepository;
 using Microsoft.Extensions.Configuration;
 using SqlSugar;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace EvanBackstageApi.Repository
 {
@@ -40,6 +38,7 @@ namespace EvanBackstageApi.Repository
         }
         public LoginUserInfo GetInfo(string accessToken = null)
         {
+
             loginUserInfo = _sqlSugarClient.Queryable<LoginUserInfo>().Where(x => x.AccessToken == accessToken).First();
             var resultNew = _sqlSugarClient.Queryable<LoginUserInfo>().Where(x => x.AccessToken == accessToken).OrderBy(x => x.DateTimeStart, OrderByType.Desc).First();
             loginUserInfo.CurrentTime = resultNew.DateTimeStart;

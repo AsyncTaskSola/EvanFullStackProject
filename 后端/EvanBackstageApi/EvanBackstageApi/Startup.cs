@@ -198,7 +198,6 @@ namespace EvanBackstageApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseRouting();
 
             #region Cors

@@ -47,7 +47,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="queryInfo.pageindex"
-        :page-sizes="[10, 15, 20]"
+        :page-sizes="[5, 10, 20]"
         :page-size="queryInfo.pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total"
@@ -63,7 +63,7 @@ export default {
     return {
       queryInfo: {
         oderyFont: "DateTimeStart desc",
-        pageSize: 10,
+        pageSize: 5,
         pageindex: 1,
       },
       ListUsersInfo: [],
@@ -85,9 +85,9 @@ export default {
           }
         )
         .then((res) => {
-          if (res.status != 200) {
-            return this.$message.error("查询失败");
-          }
+          // if (res.status != 200) {
+          //   return this.$message.error("查询失败");
+          // }
           console.log("res", res);
           res.data.data.forEach((item) => {
             item.dateTimeStart = item.dateTimeStart.replace("T", " ");
@@ -96,12 +96,12 @@ export default {
           this.total = res.data.total;
           console.log("ListUsersInfo数据", this.ListUsersInfo);
         })
-        .catch((err) => {
-          if (err.message.indexOf("401") !== -1) {
-            return this.$message.error("accessToken不正确或已过期,请重新登陆");
-          }
-          return this.$message.error("查询登陆信息失败,请查看服务器是否开启");
-        });
+        // .catch((err) => {
+        //   if (err.message.indexOf("401") !== -1) {
+        //     return this.$message.error("accessToken不正确或已过期,请重新登陆");
+        //   }
+        //   return this.$message.error("查询登陆信息失败,请查看服务器是否开启");
+        // });
     },
 
     // 监听pageSize的改变事件
@@ -128,4 +128,5 @@ export default {
   background-color: antiquewhite;
 }
 /* class="box-card" */
+
 </style>

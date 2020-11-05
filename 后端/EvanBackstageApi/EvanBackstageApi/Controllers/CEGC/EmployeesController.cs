@@ -51,17 +51,27 @@ namespace EvanBackstageApi.Controllers.CEGC
                     UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
                     Expression<Func<Employee, bool>> exp = c => true;
                     result = _employeesService.Query(exp, pageindex, pageSize, "", out t).ToList();
+                    result.ForEach(x =>
+                    {
+                        var data = _iCompaniesService.QueryFirst(w => w.Id == x.CompanyId).Result;
+                        x.CompanyName = data.Name;
+                    });
                 }
                 else
                 {
-                    result = await _employeesService.Query(x => x.FirstName.Contains(queryEmployeeName) || x.LastName.Contains(queryEmployeeName));
-                    return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+                    result = await _employeesService.Query(x => x.FirstName.Contains(queryEmployeeName));
+                    result.ForEach(x =>
+                    {
+                        var data = _iCompaniesService.QueryFirst(w => w.Id == x.CompanyId).Result;
+                        x.CompanyName = data.Name;
+                    });
+                    return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "查询员工信息成功", Data = result };
                 }
-                return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result, Total = t };
+                return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "查询员工信息成功", Data = result, Total = t };
             }
             catch (Exception)
             {
-                return new ResultModel<List<Employee>> { State = ResultType.Error.ToString(), Message = "查询失败" };
+                return new ResultModel<List<Employee>> { State = ResultType.Error.ToString(), Message = "查询员工信息失败" };
             }
         }
         /// <summary>
@@ -120,11 +130,11 @@ namespace EvanBackstageApi.Controllers.CEGC
             {
                 var companyid = _employeesService.GetEcompanyInfo(x => x.Id == employeeid, o => o.CompanyId);
                 var result= await _iCompaniesService.QueryFirst(x => x.Id == companyid);
-                return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "查询成功",Data=result };
+                return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "查询员工信息成功",Data=result };
             }
             catch (Exception e)
             {
-                return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "查询失败" };
+                return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "查询员工信息失败" };
             }
         }
         /// <summary>
@@ -137,18 +147,31 @@ namespace EvanBackstageApi.Controllers.CEGC
         {
             try
             {
-                Employees.ForEach(async x =>
+                Employees.ForEach(x =>
                 {
                     x.Id = Guid.NewGuid();
-                    if (x.CompanyId == null) throw new Exception("公司ID必填");
-                    await _employeesService.Add(Employees);
+                    //if (x.CompanyId == null) throw new Exception("公司ID必填"); 不建议重复查询，直接在后台去判断算了
+
+                    //名字可以相同，公司的员工名有可能相同
+                    //var data = await _employeesService.QueryFirst(i => i.FirstName == x.FirstName);
+                    //if (data != null)
+                    //{
+                    //    throw new Exception("不能添加相同公司名");
+                    //}
+
+                    //假设前端只写了公司名
+                    if (x.CompanyName == null || x.CompanyName == "") throw new Exception("公司名必填");
+                    var data =  _iCompaniesService.QueryFirst(o => o.Name == x.CompanyName).Result;
+                    if(data==null) throw new Exception("没有找到指定公司");
+                    x.CompanyId= data.Id;
+                    _employeesService.Add(Employees);
                 });             
             }
             catch
             {
-                return new ResultModel<List<Employee>> { State = ResultType.Error.ToString(), Message = "添加失败", Data = Employees };
+                return new ResultModel<List<Employee>> { State = ResultType.Error.ToString(), Message = "添加员工失败", Data = Employees };
             }
-            return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "添加成功", Data = Employees };
+            return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "添加员工成功", Data = Employees };
         }
 
         /// <summary>

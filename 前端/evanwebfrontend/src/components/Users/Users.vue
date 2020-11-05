@@ -16,7 +16,9 @@
       <!-- <h4>AccessToken：{{this.LoginUserInfo.accessToken}}</h4>      -->
       <h4>
         DateTimeStart:<span>{{
-          this.LoginUserInfo.dateTimeStart.replace("T", " ")
+          this.LoginUserInfo.dateTimeStart
+            ? this.LoginUserInfo.dateTimeStart.replace("T", " ")
+            : ""
         }}</span>
       </h4>
       <h4>
@@ -28,40 +30,40 @@
       <h3>涉及技术</h3>
       <section>
         <div>
-          <Tag>HTML</Tag>
+          <span>HTML</span>
         </div>
         <div>
-          <Tag>CSS3</Tag>
+          <span>CSS3</span>
         </div>
         <div>
-          <Tag>JavaScript</Tag>
+          <span>JavaScript</span>
         </div>
         <div>
-          <Tag>.NET Core</Tag>
+          <span>.NET Core</span>
         </div>
         <div>
-          <Tag>Vue.js</Tag>
+          <span>Vue.js</span>
         </div>
         <div>
-          <Tag>IDS4</Tag>
+          <span>IDS4</span>
         </div>
         <div>
-          <Tag>Log4</Tag>
+          <span>Log4</span>
         </div>
         <div>
-          <Tag>SqlSugar</Tag>
+          <span>SqlSugar</span>
         </div>
         <div>
-          <Tag>Swagger</Tag>
+          <span>Swagger</span>
         </div>
         <div>
-          <Tag>Es6</Tag>
+          <span>Es6</span>
         </div>
         <div>
-          <Tag>Element</Tag>
+          <span>Element</span>
         </div>
         <div>
-          <Tag>autoFace</Tag>
+          <span>autoFace</span>
         </div>
       </section>
     </div>
@@ -88,18 +90,18 @@ export default {
         }
       )
       .then((res) => {
-        if (res.status != 200) {
-          return this.$message.error("获取当前用户信息失败");
-        }
+        // if (res.status != 200) {
+        //   return this.$message.error("获取当前用户信息失败");
+        // }
         this.LoginUserInfo = res.data.data;
         console.log("当前用户区域", this.LoginUserInfo);
       })
-      .catch((err) => {
-        if (err.message.indexOf("401") !== -1) {
-          return this.$message.error("accessToken不正确或已过期,请重新登陆");
-        }
-        return this.$message.error("查询公司信息失败,请查看服务器是否开启");
-      });
+      // .catch((err) => {
+      //   if (err.message.indexOf("401") !== -1) {
+      //     return this.$message.error("accessToken不正确或已过期,请重新登陆");
+      //   }
+      //   return this.$message.error("查询用户信息失败,请查看服务器是否开启");
+      // });
   },
 };
 </script>
@@ -125,11 +127,12 @@ export default {
 }
 .UserInfo {
   overflow: auto;
-}
-span {
+  span {
   color: green;
   padding: 10px;
 }
+}
+
 
 .Technology {
   perspective: 900px;
@@ -164,7 +167,7 @@ span {
   align-items: center;
 }
 
-.Technology section div tag {
+.Technology section div span {
   font-size: 20px;
 }
 .Technology section div:nth-of-type(1) {
@@ -211,5 +214,8 @@ span {
 }
 .Technology section div:nth-of-type(12) {
   transform: rotateY(330deg) translateZ(300px);
+}
+section div span{
+  color: black;
 }
 </style>

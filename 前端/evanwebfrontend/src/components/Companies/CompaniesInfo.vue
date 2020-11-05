@@ -274,20 +274,20 @@ export default {
           }
         )
         .then((res) => {
-          if (res.status != 200) {
-            return this.$message.error("查询公司信息失败");
-          }
+          //   if (res.status != 200) {
+          //     return this.$message.error("查询公司信息失败");
+          //   }
           console.log("公司数据", res);
-          this.$message.success("查询公司信息成功");
+          //   this.$message.success("查询公司信息成功");
           this.ListCompaniesInfo = res.data.data;
           this.total = res.data.total;
-        })
-        .catch((err) => {
-          if (err.message.indexOf("401") !== -1) {
-            return this.$message.error("accessToken不正确或已过期,请重新登陆");
-          }
-          return this.$message.error("查询公司信息失败,请查看服务器是否开启");
         });
+      // .catch((err) => {
+      //   if (err.message.indexOf("401") !== -1) {
+      //     return this.$message.error("accessToken不正确或已过期,请重新登陆");
+      //   }
+      //   return this.$message.error("查询公司信息失败,请查看服务器是否开启");
+      // });
     },
     // 监听pageSize的改变事件
     handleSizeChange(newSize) {
@@ -324,21 +324,21 @@ export default {
           })
           //    multipart/form-data
           .then((res) => {
-            if (res.status != 200) {
-              return this.$message.error("添加失败");
-            }
-            this.$message.success("添加成功");
+            // if (res.status != 200) {
+            //   return this.$message.error("添加失败");
+            // }
+            // this.$message.success("添加成功");
             this.AddDialogVisible = false;
             this.GetCompaniesList();
-          })
-          .catch((err) => {
-            if (err.message.indexOf("401") !== -1) {
-              return this.$message.error(
-                "accessToken不正确或已过期,请重新登陆"
-              );
-            }
-            return this.$message.error("添加失败");
           });
+        //   .catch((err) => {
+        //     if (err.message.indexOf("401") !== -1) {
+        //       return this.$message.error(
+        //         "accessToken不正确或已过期,请重新登陆"
+        //       );
+        //     }
+        //     return this.$message.error("添加失败");
+        //   });
       });
     },
     //---------------------------------------------------------------------------
@@ -381,21 +381,21 @@ export default {
             },
           })
           .then((res) => {
-            if (res.status != 200) {
-              return this.$message.error("修改失败");
-            }
-            this.$message.success("修改成功");
+            // if (res.status != 200) {
+            //   return this.$message.error("修改失败");
+            // }
+            // this.$message.success("修改成功");
             this.EditDialogVisible = false;
             this.GetCompaniesList();
-          })
-          .catch((err) => {
-            if (err.message.indexOf("401") !== -1) {
-              return this.$message.error(
-                "accessToken不正确或已过期,请重新登陆"
-              );
-            }
-            return this.$message.error("修改失败");
           });
+        //   .catch((err) => {
+        //     if (err.message.indexOf("401") !== -1) {
+        //       return this.$message.error(
+        //         "accessToken不正确或已过期,请重新登陆"
+        //       );
+        //     }
+        //     return this.$message.error("修改失败");
+        //   });
       });
     },
     //删除数据
@@ -408,7 +408,7 @@ export default {
       })
         .then((res) => {
           if (res === "confirm") {
-            console.log("删除",CompanyIds);
+            console.log("删除", CompanyIds);
             this.$http
               .post("/api/CEGC/Companies/Delete", [CompanyIds], {
                 headers: {
@@ -416,21 +416,21 @@ export default {
                 },
               })
               .then((res) => {
-                if (res.status != 200) {
-                  return this.$message.error("删除失败");
-                }
-                this.$message.success("删除成功");
+                // if (res.status != 200) {
+                //   return this.$message.error("删除失败");
+                // }
+                // this.$message.success("删除成功");
                 this.EditDialogVisible = false;
                 this.GetCompaniesList();
-              })
-              .catch((err) => {
-                if (err.message.indexOf("401") !== -1) {
-                  return this.$message.error(
-                    "accessToken不正确或已过期,请重新登陆"
-                  );
-                }
-                return this.$message.error("修改失败");
               });
+            //   .catch((err) => {
+            //     if (err.message.indexOf("401") !== -1) {
+            //       return this.$message.error(
+            //         "accessToken不正确或已过期,请重新登陆"
+            //       );
+            //     }
+            //     return this.$message.error("修改失败");
+            //   });
           }
         })
         .catch((res) => res);

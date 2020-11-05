@@ -18,7 +18,7 @@ namespace EvanBackstageApi.Entity.CEG
         public Guid CompanyId { get; set; }
         public string EmplyeeNo { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        //public string LastName { get; set; }
 
         public Gender Gender { get; set; }
         public DateTime DateofBirth { get; set; }
@@ -26,7 +26,7 @@ namespace EvanBackstageApi.Entity.CEG
         /// 业绩
         /// </summary>
         public int? Performance { get; set; }
-        //[SugarColumn(IsIgnore = true), NotMapped]
-        //public Company Company { get; set; }
+        [SugarColumn(IsIgnore = true), NotMapped]
+        public string CompanyName { get; set; }
     }
 }

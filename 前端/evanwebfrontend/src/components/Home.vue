@@ -66,7 +66,7 @@
               <span>员工管理</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item index="3-3">
+            <el-menu-item index="/EmployeesInfo">
               <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>员工信息</span>
@@ -133,23 +133,6 @@ export default {
     },
   },
   created() {
-    this.$http
-      .post(
-        "/api/LoginUserInfo/GetInfo",
-        {},
-        {
-          headers: {
-            Authorization: sessionStorage.getItem("Authorization"),
-          },
-        }
-      )
-      .then((res) => {
-        if (res.status != 200) {
-          return this.$message.error("获取登陆信息失败");
-        }
-        this.LoginUserInfo = res.data.data;
-        console.log("登陆", this.LoginUserInfo);
-      });
   },
 };
 </script>

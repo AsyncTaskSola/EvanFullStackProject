@@ -50,6 +50,11 @@ namespace EvanBackstageApi.Controllers.CEGC
                 Companies.ForEach(async item =>
                 {
                     if (item.Name == null) throw new Exception("公司名必填");
+                    var data =await _iCompaniesService.QueryFirst(x => x.Name == item.Name);
+                    if(data!=null)
+                    {
+                        throw new Exception("不能添加相同公司名");
+                    }
                     var employee = item.Emplyees as List<Employee>;
 
                     var result =await _iCompaniesService.Add(new Company { Id=item.Id,Introduction=item.Introduction,Name=item.Name,CompanyEmail=item.CompanyEmail,CompanyPhone=item.CompanyPhone,CurrentTime= item.CurrentTime });
@@ -58,9 +63,9 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             catch
             {
-                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "添加失败", Data = Companies };
+                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "添加公司失败", Data = Companies };
             }
-            return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "添加成功", Data = Companies };
+            return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "添加公司成功", Data = Companies };
 
 
         }
@@ -78,7 +83,7 @@ namespace EvanBackstageApi.Controllers.CEGC
             int t = 0;
             Expression<Func<V_CompanyEmployeeInfo, bool>> exp = c => true;
             List<V_CompanyEmployeeInfo> result = _iv_CompanyEmployeeInfoServices.Query(exp, pageindex, pageSize, "", out t).ToList();
-            return new ResultModel<List<V_CompanyEmployeeInfo>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+            return new ResultModel<List<V_CompanyEmployeeInfo>> { State = ResultType.Success.ToString(), Message = "查询信息成功", Data = result };
         }
 
         /// <summary>
@@ -103,13 +108,13 @@ namespace EvanBackstageApi.Controllers.CEGC
                 else
                 {
                     result = await _iCompaniesService.Query(x => x.Name.Contains(querycompanyName));
-                    return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+                    return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询公司信息成功", Data = result };
                 }
-                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result, Total = t };
+                return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询公司信息成功", Data = result, Total = t };
             }
             catch (Exception)
             {
-                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
+                return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询公司信息失败"};
             }           
         }
         /// <summary>
@@ -157,11 +162,11 @@ namespace EvanBackstageApi.Controllers.CEGC
                 try
                 {
                     await _iCompaniesService.Update(company,x=>x.Id==company.Id);
-                    return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "更新成功" };
+                    return new ResultModel<Company> { State = ResultType.Success.ToString(), Message = "更新公司信息成功" };
                 }
                 catch (Exception e)
                 {
-                    return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "更新失败" };
+                    return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "更新公司信息失败" };
                 }
             }
             return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
@@ -188,8 +193,6 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
-
-
 
 
         /// <summary>

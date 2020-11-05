@@ -32,7 +32,7 @@ namespace EvanBackstageApi.Controllers
             var aa = HttpContext.User;
             var accesstoken= HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
             var result= _unitOfWork.GetInfo(accesstoken);
-            return new ResultModel<LoginUserInfo> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
+            return new ResultModel<LoginUserInfo> { State = ResultType.Success.ToString(), Message = "登陆成功", Data = result };
         }
         /// <summary>
         /// 查看所有登陆信息记录

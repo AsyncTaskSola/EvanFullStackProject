@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button,Form,FormItem,Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup, MenuItem,RadioButton,RadioGroup,Breadcrumb,BreadcrumbItem,Card,Table,TableColumn,Row,Col,Pagination,Tooltip,Dialog,MessageBox,Switch} from 'element-ui'
+import { Button,Form,FormItem,Input,Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup, MenuItem,RadioButton,RadioGroup,Breadcrumb,BreadcrumbItem,Card,Table,TableColumn,Row,Col,Pagination,Tooltip,Dialog,MessageBox,Switch,Tag,Dropdown,DropdownMenu,DropdownItem,DatePicker,Select,Option} from 'element-ui'
 
 //弹框提示
 import{Message} from 'element-ui'
@@ -28,6 +28,13 @@ Vue.use(Pagination)
 Vue.use(Tooltip)
 Vue.use(Dialog)
 Vue.use(Switch)
+Vue.use(Tag)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+Vue.use(DatePicker)
+Vue.use(Select)
+Vue.use(Option)
 //全局挂载
 Vue.prototype.$message=Message
 //Messagebox弹窗
