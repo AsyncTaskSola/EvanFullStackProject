@@ -193,26 +193,5 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             return new ResultModel<Company> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
-
-
-        /// <summary>
-        /// 根据名称模糊查询相关公司
-        /// </summary>
-        /// <param name="companyName"></param>
-        /// <returns></returns>
-
-        //[HttpGet("QueryCompany")]
-        //public async Task<ResultModel<List<Company>>> QueryCompany(string companyName)
-        //{
-        //    try
-        //    {
-        //        var result= await _iCompaniesService.Query(x => x.Name.Contains(companyName));
-        //        return new ResultModel<List<Company>> { State = ResultType.Success.ToString(), Message = "查询成功",Data=result };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new ResultModel<List<Company>> { State = ResultType.Error.ToString(), Message = "查询失败"};
-        //    }
-        //}
     }
 }
