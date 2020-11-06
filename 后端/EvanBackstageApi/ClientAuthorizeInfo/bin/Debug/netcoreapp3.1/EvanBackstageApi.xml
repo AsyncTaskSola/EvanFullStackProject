@@ -176,7 +176,7 @@
             <param name="EmployeeIds"></param>
             <returns></returns>
         </member>
-        <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.Upload(EvanBackstageApi.Entity.CEG.Employee)">
+        <member name="M:EvanBackstageApi.Controllers.CEGC.EmployeesController.Update(EvanBackstageApi.Entity.CEG.Employee)">
             <summary>
             编辑数据
             </summary>

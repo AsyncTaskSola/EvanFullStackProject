@@ -101,8 +101,8 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// </summary>
         /// <param name="employee"></param>
         /// <returns></returns>
-        [HttpPost("Upload")]
-        public async Task<ResultModel<Employee>> Upload([FromBody] Employee employee)
+        [HttpPost("Update")]
+        public async Task<ResultModel<Employee>> Update([FromBody] Employee employee)
         {
             if (UserInfo.Role == "管理员")
             {
@@ -118,6 +118,26 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             return new ResultModel<Employee> { State = ResultType.Error.ToString(), Message = "没有相对于的权限" };
         }
+
+        [HttpGet("UpdateId")]
+        public async Task<ResultModel<Employee>> UpdateId(Guid employeeid)
+        {
+            if (UserInfo.Role == "管理员")
+            {
+                try
+                {
+                    var UpdateDate = await _employeesService.QueryFirst(x => x.Id == employeeid);
+                    UpdateDate.CompanyName = _iCompaniesService.QueryFirst(o => o.Id == UpdateDate.CompanyId).Result.Name;
+                    return new ResultModel<Employee> { State = ResultType.Success.ToString(), Message = "查询当前数据成功", Data = UpdateDate };
+                }
+                catch (Exception e)
+                {
+                    return new ResultModel<Employee> { State = ResultType.Error.ToString(), Message = "查询当前数据失败" };
+                }
+            }
+            return new ResultModel<Employee> { State = ResultType.Error.ToString(), Message = "没有相对的权限" };
+        }
+
         /// <summary>
         /// 根据id查询所在该员工所在的公司
         /// </summary>
@@ -173,25 +193,5 @@ namespace EvanBackstageApi.Controllers.CEGC
             }
             return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "添加员工成功", Data = Employees };
         }
-
-        /// <summary>
-        /// 根据名称模糊查询相关员工
-        /// </summary>
-        /// <param name="employeeName"></param>
-        /// <returns></returns>
-
-        //[HttpGet("QueryCompany")]
-        //public async Task<ResultModel<List<Employee>>> Upload(string employeeName)
-        //{
-        //    try
-        //    {
-        //        var result = await _employeesService.Query(x => x.FirstName.Contains(employeeName)||x.LastName.Contains(employeeName));
-        //        return new ResultModel<List<Employee>> { State = ResultType.Success.ToString(), Message = "查询成功", Data = result };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new ResultModel<List<Employee>> { State = ResultType.Error.ToString(), Message = "查询失败" };
-        //    }
-        //}
     }
 }

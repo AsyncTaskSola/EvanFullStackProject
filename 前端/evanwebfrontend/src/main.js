@@ -38,16 +38,21 @@ axios.interceptors.response.use(res => {
   err => {
     //错误响应
     console.log("响应拦截器失败", err.message);
-    if (err.message.indexOf("401") !== -1) {
+    var statusCode = err.message.match(/\d+/g)[0];
+    console.log("错误状态码",statusCode);   
+
+    if (statusCode == 401) {
       Message({
         type: 'error',
         message: "accessToken不正确或已过期"
       });
+      sessionStorage.clear();
+      this.$router.push("/Login");
     }
     else {
       Message({
         type: res.data.state === 'error',
-        message: `${res.data.message}(状态码:${res.res.status})`
+        message: `${res.data.message}(状态码:${statusCode})`
       });
     }
   })
@@ -56,9 +61,6 @@ Vue.prototype.$http = axios
 //自定义guid生成
 Vue.prototype.$guid = JsNewGuid;
 Vue.prototype.$Gettime = getNowFormatDate;
-
-
-
 
 
 Vue.config.productionTip = false

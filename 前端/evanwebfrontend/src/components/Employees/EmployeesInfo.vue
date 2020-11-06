@@ -31,7 +31,7 @@
       <div class="Data">
         <el-table :data="ListEmoloyeeInfo" border>
           <el-table-column type="index" label="#"> </el-table-column>
-          <el-table-column prop="companyName" label="所属公司" width="270">
+          <el-table-column prop="companyName" label="所属公司" width="170">
           </el-table-column>
           <el-table-column prop="emplyeeNo" label="员工编码" width="100">
           </el-table-column>
@@ -145,6 +145,53 @@
         <el-button type="primary" @click="AddFormData()">确 定</el-button>
       </span>
     </el-dialog>
+
+    <!-- Dialog 编辑对话框 -->
+    <el-dialog
+      title="编辑员工"
+      :visible.sync="EditDialogVisible"
+      width="width"
+      v-dialogDrag
+    >
+      <el-form
+        :model="EditEmployeeForm"
+        :rules="EditEmployeeRules"
+        ref="EditEmployeeRef"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item label="员工名" prop="firstName">
+          <el-input v-model="EditEmployeeForm.firstName"></el-input>
+        </el-form-item>
+        <el-form-item label="员工编号" prop="emplyeeNo">
+          <el-input v-model="EditEmployeeForm.emplyeeNo"></el-input>
+        </el-form-item>
+        <el-form-item label="性别" prop="gender">
+          <el-select v-model="EditEmployeeForm.gender" placeholder="请选择性别">
+            <el-option label="男" value="1"></el-option>
+            <el-option label="女" value="2"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="生日" prop="dateofBirth">
+          <el-date-picker
+            v-model="EditEmployeeForm.dateofBirth"
+            type="datetime"
+            placeholder="选择日期时间"
+            size="small"
+            format="yyyy 年 MM 月 dd 日 HH 时 mm 分 ss 秒"
+            value-format="yyyy-MM-ddTHH:mm:ss"
+          >
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="个人业绩" prop="performance">
+          <el-input v-model="EditEmployeeForm.performance"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="EditFormData">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -211,6 +258,42 @@ export default {
           },
         ],
       },
+      //----------------------------------------------------
+      //编辑实体
+      EditEmployeeForm: {},
+      //编辑对话框
+      EditDialogVisible: false,
+      //编辑约束
+      EditEmployeeRules: {
+        firstName: [
+          {
+            required: true,
+            message: "请输入名字",
+            trigger: "blur",
+          },
+        ],
+        performance: [
+          {
+            required: true,
+            message: "请输入个人业绩",
+            trigger: "blur",
+          },
+        ],
+        dateofBirth: [
+          {
+            required: true,
+            message: "请输入日期",
+            trigger: "blur",
+          },
+        ],
+        gender: [
+          {
+            required: true,
+            message: "请选择性别",
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -225,13 +308,13 @@ export default {
           }
         )
         .then((res) => {
-          console.log("员工数据", res);      
+          console.log("员工数据", res);
           res.data.data.forEach((item) => {
             item.dateofBirth = item.dateofBirth.replace("T", " ");
           });
           this.ListEmoloyeeInfo = res.data.data;
           this.total = res.data.total;
-        })
+        });
     },
     // 监听pageSize的改变事件
     handleSizeChange(newSize) {
@@ -256,9 +339,11 @@ export default {
     AddFormData() {
       this.$refs.AddEmployeeRef.validate((valid) => {
         if (!valid) return;
-        this.AddEmployeeForm.companyId=this.$guid();
-        this.AddEmployeeForm.gender=Number(this.AddEmployeeForm.gender)
-        this.AddEmployeeForm.performance=Number(this.AddEmployeeForm.performance)
+        this.AddEmployeeForm.companyId = this.$guid();
+        this.AddEmployeeForm.gender = Number(this.AddEmployeeForm.gender);
+        this.AddEmployeeForm.performance = Number(
+          this.AddEmployeeForm.performance
+        );
         const result = this.AddEmployeeForm;
         console.log("表单的数据", result);
         this.$http
@@ -266,10 +351,74 @@ export default {
             Authorization: sessionStorage.getItem("Authorization"),
           })
           .then((res) => {
-            this.$message.success("添加成功");
+            this.AddDialogVisible = false;
+            this.GetEmployeeList();
+          });
+      });
+    },
+    //--------------------------------------------------------------------------------------
+    //编辑查看当前单据
+    EditEmoloyee(id) {
+      this.$http
+        .get(`/api/CEGC/Employees/UpdateId?employeeid=${id}`, {
+          headers: {
+            Authorization: sessionStorage.getItem("Authorization"),
+          },
+        })
+        .then((res) => {
+          console.log("当前用户", res);
+
+          this.EditEmployeeForm = res.data.data;
+          this.EditEmployeeForm.gender =
+            this.EditEmployeeForm.gender === 1 ? "男" : "女";
+        });
+      this.EditDialogVisible = true;
+    },
+    //编辑表单数据
+    EditFormData() {
+      this.$refs.EditEmployeeRef.validate((valid) => {
+        if (!valid) return;
+        console.log("更新数据", this.EditEmployeeForm);
+        this.EditEmployeeForm.dateofBirth = this.EditEmployeeForm.dateofBirth.replace(
+          " ",
+          "T"
+        );
+        this.EditEmployeeForm.performance = Number(
+          this.EditEmployeeForm.performance
+        );
+        this.AddEmployeeForm.gender = Number(this.EditEmployeeForm.gender);
+        this.$http
+          .post("/api/CEGC/Employees/Update", this.EditEmployeeForm, {
+            headers: {
+              Authorization: sessionStorage.getItem("Authorization"),
+            },
+          })
+          .then((res) => {
             this.EditDialogVisible = false;
             this.GetEmployeeList();
-          })
+          });
+      });
+    },
+    //删除
+    DeleteEmoloyee(EmployeeIds) {
+      //  询问用户是否删除
+      this.$confirm("此操作将永久删除该数据, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      }).then((res) => {
+        if (res === "confirm") {
+          this.$http
+            .post("/api/CEGC/Employees/Delete", [EmployeeIds], {
+              headers: {
+                Authorization: sessionStorage.getItem("Authorization"),
+              },
+            })
+            .then((res) => {
+              this.EditDialogVisible = false;
+              this.GetEmployeeList();
+            });
+        }
       });
     },
   },

@@ -25,20 +25,20 @@
           <el-submenu index="1">
             <!-- 一级菜单 -->
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-s-custom"></i>
               <span>用户管理</span>
             </template>
             <!-- 二级菜单 -->
             <el-menu-item index="/Users">
               <template slot="title">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-grid"></i>
                 <span>当前登陆用户</span>
               </template>
             </el-menu-item>
 
              <el-menu-item index="/UsersInfo">
               <template slot="title">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-grid"></i>
                 <span>登陆信息记录</span>
               </template>
             </el-menu-item>
@@ -47,13 +47,13 @@
           <el-submenu index="2">
             <!-- 一级菜单 -->
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-office-building"></i>
               <span>公司管理</span>
             </template>
             <!-- 二级菜单 -->
             <el-menu-item index="/CompaniesInfo">
               <template slot="title">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-grid"></i>
                 <span>公司信息</span>
               </template>
             </el-menu-item>
@@ -62,13 +62,13 @@
           <el-submenu index="3">
             <!-- 一级菜单 -->
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-s-check"></i>
               <span>员工管理</span>
             </template>
             <!-- 二级菜单 -->
             <el-menu-item index="/EmployeesInfo">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-s-grid"></i>
                 <span>员工信息</span>
               </template>
             </el-menu-item>
@@ -77,13 +77,13 @@
           <el-submenu index="4">
             <!-- 一级菜单 -->
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-aim"></i>
               <span>管理员区</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item index="4-4">
+            <el-menu-item index="/AdminArea">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-s-grid"></i>
                 <span>公司员工信息汇总</span>
               </template>
             </el-menu-item>
@@ -92,13 +92,13 @@
           <el-submenu index="5">
             <!-- 一级菜单 -->
             <template slot="title">
-              <i class="el-icon-user-solid"></i>
+              <i class="el-icon-s-data"></i>
               <span>业绩管理</span>
             </template>
             <!-- 二级菜单 -->
             <el-menu-item index="5-5">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-data-analysis"></i>
                 <span>业绩看板</span>
               </template>
             </el-menu-item>
