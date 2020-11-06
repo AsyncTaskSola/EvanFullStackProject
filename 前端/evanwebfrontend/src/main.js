@@ -62,6 +62,7 @@ Vue.prototype.$http = axios
 Vue.prototype.$guid = JsNewGuid;
 Vue.prototype.$Gettime = getNowFormatDate;
 
+
 Vue.config.productionTip = false
 
 new Vue({
