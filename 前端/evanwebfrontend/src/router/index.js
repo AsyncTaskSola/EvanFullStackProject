@@ -16,6 +16,8 @@ const CompaniesInfo = () =>
   import('@/components/Companies/CompaniesInfo.vue')
 const EmployeesInfo = () =>
   import('@/components/Employees/EmployeesInfo.vue')
+  const AdminArea = () =>
+  import('@/components/AdminAreas/AdminArea.vue')
 Vue.use(VueRouter)
 
 
@@ -46,6 +48,8 @@ const router = new VueRouter({
         path: "/CompaniesInfo", component: CompaniesInfo
       }, {
         path: "/EmployeesInfo", component: EmployeesInfo
+      },{
+        path: "/AdminArea", component: AdminArea       
       }]
   },]
 })

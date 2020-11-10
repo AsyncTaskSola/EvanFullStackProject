@@ -133,7 +133,7 @@
             <param name="Companies"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompaniesEmployeeInfo(System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompaniesEmployeeInfo(System.Int32,System.Int32,System.String,System.String)" -->
         <member name="M:EvanBackstageApi.Controllers.CEGC.CompaniesController.GetCompanies(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             获取所有公司，根据名称模糊查询相关公司

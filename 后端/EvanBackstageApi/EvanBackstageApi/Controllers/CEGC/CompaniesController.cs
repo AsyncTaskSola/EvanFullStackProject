@@ -1,4 +1,5 @@
 ﻿using EvanBackstageApi.Basic;
+using EvanBackstageApi.Entity;
 using EvanBackstageApi.Entity.CEG;
 using EvanBackstageApi.Entity.UserInfo;
 using EvanBackstageApi.Entity.View.V_CEG;
@@ -76,14 +77,34 @@ namespace EvanBackstageApi.Controllers.CEGC
         /// <param name="pageindex">第几页<</param>
         /// <returns></returns>
         [HttpGet("GetCompaniesEmployeeInfo")]        
-        public async Task<ResultModel<List<V_CompanyEmployeeInfo>>> GetCompaniesEmployeeInfo(int pageSize, int pageindex)
+        public async Task<ResultModel<object>> GetCompaniesEmployeeInfo(int pageSize, int pageindex, string oderyFont,string font)
         {
-            var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
-            UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
-            int t = 0;
-            Expression<Func<V_CompanyEmployeeInfo, bool>> exp = c => true;
-            List<V_CompanyEmployeeInfo> result = _iv_CompanyEmployeeInfoServices.Query(exp, pageindex, pageSize, "", out t).ToList();
-            return new ResultModel<List<V_CompanyEmployeeInfo>> { State = ResultType.Success.ToString(), Message = "查询信息成功", Data = result };
+            try
+            {
+                var result = new DataTableResult<V_CompanyEmployeeInfo>();
+                int t = 0;
+                var accesstoken = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+                UserInfo = _iCompaniesService.GetLoginInfo(accesstoken);
+                if (UserInfo.Role != "管理员")
+                {
+                    return new ResultModel<object> { State = ResultType.Error.ToString(), Message = "抱歉没有权限访问" };
+                }
+                if (!string.IsNullOrEmpty(font))
+                {
+                    Expression<Func<V_CompanyEmployeeInfo, bool>> exp = c => true;
+                    //result = _iv_CompanyEmployeeInfoServices.Query(exp, pageindex, pageSize, oderyFont, out t).ToList();
+                    result = _iv_CompanyEmployeeInfoServices.DataTable(exp, pageindex, pageSize, oderyFont,font, out t);
+                    return new ResultModel<object> { State = ResultType.Success.ToString(), Message = "查询信息成功", Data = result, Total = t };
+                }
+                //var data = await _iv_CompanyEmployeeInfoServices.Query(x => x.Name.Contains(font) || x.FirstName.Contains(font));
+                var data = _iv_CompanyEmployeeInfoServices.DataTable(c=>true, pageindex, pageSize, oderyFont,font, out t);
+                return new ResultModel<object> { State = ResultType.Success.ToString(), Message = "查询信息成功", Data = data, Total = t };
+            }
+            catch (Exception)
+            {
+                return new ResultModel<object> { State = ResultType.Error.ToString(), Message = "查询信息失败" };
+            }
+           
         }
 
         /// <summary>
