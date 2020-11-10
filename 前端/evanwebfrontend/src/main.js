@@ -38,9 +38,9 @@ axios.interceptors.response.use(res => {
   err => {
     //错误响应
     console.log("响应拦截器失败", err.message);
-    var statusCode = err.message.match(/\d+/g)[0];
-    console.log("错误状态码",statusCode);   
-
+    // var statusCode = err.message.match(/\d+/g)[0];
+    // console.log("错误状态码",statusCode);   
+    var statusCode=err.response.status;
     if (statusCode == 401) {
       Message({
         type: 'error',

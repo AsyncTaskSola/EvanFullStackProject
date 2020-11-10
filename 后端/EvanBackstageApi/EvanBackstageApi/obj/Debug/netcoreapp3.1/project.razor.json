@@ -14387,7 +14387,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 2147483646
   },
   "RootNamespace": "EvanBackstageApi",
   "Documents": [],

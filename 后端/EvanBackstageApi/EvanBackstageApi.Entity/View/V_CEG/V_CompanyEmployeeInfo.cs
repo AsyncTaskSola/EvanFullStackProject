@@ -22,13 +22,20 @@ namespace EvanBackstageApi.Entity.View.V_CEG
         public Guid CompanyId { get; set; }
         public string EmplyeeNo { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        /// <summary>
+        /// 公司邮箱
+        /// </summary>
+        public string CompanyEmail { get; set; }
+        /// <summary>
+        /// 公司联系方式
+        /// </summary>
+        public string CompanyPhone { get; set; }
 
         public Gender Gender { get; set; }
         public DateTime DateofBirth { get; set; }
         [SugarColumn(IsIgnore = true), NotMapped]
         public Company Company { get; set; }
         [SugarColumn(IsIgnore = true), NotMapped]
-        public IEnumerable<Employee> Emplyees { get; set; }
+        public List<Employee> Emplyees { get; set; }
     }
 }
