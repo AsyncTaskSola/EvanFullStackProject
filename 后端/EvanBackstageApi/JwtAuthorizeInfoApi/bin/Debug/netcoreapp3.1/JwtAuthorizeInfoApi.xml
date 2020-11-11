@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JwtAuthorizeInfoApi</name>
+    </assembly>
+    <members>
+        <member name="T:JwtAuthorizeInfoApi.GetJwtToken.JwtTokenCreated">
+            <summary>
+            生成jwt字符串
+            </summary>
+        </member>
+    </members>
+</doc>

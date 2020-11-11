@@ -96,7 +96,7 @@
               <span>业绩管理</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item index="5-5">
+            <el-menu-item index="/Performance">
               <template slot="title">
                 <i class="el-icon-data-analysis"></i>
                 <span>业绩看板</span>
