@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EvanBackstageApi.IRepository\EvanBackstageApi.IRepository.csproj" />
     <ProjectReference Include="..\EvanBackstageApi.IService\EvanBackstageApi.IService.csproj" />
     <ProjectReference Include="..\EvanBackstageApi.Repository\EvanBackstageApi.Repository.csproj" />

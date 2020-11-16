@@ -4,9 +4,24 @@
         <name>JwtAuthorizeInfoApi</name>
     </assembly>
     <members>
-        <member name="T:JwtAuthorizeInfoApi.GetJwtToken.JwtTokenCreated">
+        <member name="T:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyHandler">
             <summary>
-            生成jwt字符串
+            自定义策略授权
+            </summary>
+        </member>
+        <member name="P:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyRequirment.Roles">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyRequirment.ClaimType">
+            <summary>
+            认证授权类型
+            </summary>
+        </member>
+        <member name="P:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyRequirment.Expiration">
+            <summary>
+            过期时间
             </summary>
         </member>
     </members>
