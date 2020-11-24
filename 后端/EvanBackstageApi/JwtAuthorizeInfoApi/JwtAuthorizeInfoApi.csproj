@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="IdentityModel" Version="4.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
@@ -19,6 +21,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EvanBackstageApi.Entity\EvanBackstageApi.Entity.csproj" />
+    <ProjectReference Include="..\EvanBackstageApi.Extensions\EvanBackstageApi.Extensions.csproj" />
+    <ProjectReference Include="..\EvanBackstageApi.Repository\EvanBackstageApi.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 

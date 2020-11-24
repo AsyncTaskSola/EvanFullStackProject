@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.deps.json
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.pdb
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi.OtherHelp\obj\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.pdb

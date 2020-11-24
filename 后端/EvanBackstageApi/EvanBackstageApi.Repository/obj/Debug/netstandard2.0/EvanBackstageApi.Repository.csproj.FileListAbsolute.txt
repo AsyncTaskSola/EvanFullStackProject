@@ -36,7 +36,7 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.AssemblyInfoInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.AssemblyInfo.cs
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.pdb
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CoreCompileInputs.cache

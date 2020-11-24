@@ -206,6 +206,7 @@ namespace EvanBackstageApi.Repository
             return await _db.Updateable(entity).IgnoreColumns(whereExpression).ExecuteCommandHasChangeAsync();
         }
 
+
         /// <summary>
         /// 更新约束 更新条件 可以写C=>C.Name=="****"
         /// </summary>
@@ -217,7 +218,16 @@ namespace EvanBackstageApi.Repository
             return await _db.Updateable(entity).Where(whereExpression).ExecuteCommandHasChangeAsync();
         }
 
-
+        /// <summary>
+        /// 更新对应字段
+        /// </summary>
+        /// <param name="where">条件</param>
+        /// <param name="updateColumns">更新等字段</param>
+        /// <returns></returns>
+        public async Task<bool> Update(TEntity entity, params string[] updateColumns)
+        {
+            return await _db.Updateable(entity).UpdateColumns(updateColumns).ExecuteCommandHasChangeAsync();
+        }
 
 
 

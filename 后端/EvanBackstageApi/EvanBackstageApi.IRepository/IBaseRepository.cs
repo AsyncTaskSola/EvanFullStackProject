@@ -32,7 +32,7 @@ namespace EvanBackstageApi.IRepository
         Task<bool> Update(List<TEntity> listEntities);
         Task<bool> Update(TEntity entity, Expression<Func<TEntity, object>> whereExpression);
         Task<bool> Update(TEntity entity, Expression<Func<TEntity, bool>> whereExpression);
-
+        Task<bool> Update(TEntity entity, params string[] updateColumns);
         List<TEntity> Query(
             Expression<Func<TEntity, bool>> whereLambda,
             int intPageIndex,

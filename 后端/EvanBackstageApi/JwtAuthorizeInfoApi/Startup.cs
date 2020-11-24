@@ -2,19 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-using System.Linq;
+using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using JwtAuthorizeInfoApi.GetJwtToken;
+using Autofac;
+using AutoMapper;
+using EvanBackstageApi.Entity.JwtAuthorizeInfo.Root;
+using EvanBackstageApi.Extensions;
+using EvanBackstageApi.IRepository.IJwtAuthorizeInfoRepository;
+using EvanBackstageApi.Repository.JwtAuthorizeInfoRepository;
+using JwtAuthorizeInfoApi.PolicyRequirment;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -33,7 +38,6 @@ namespace JwtAuthorizeInfoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             #region swagger service
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             var xmlFile = AppDomain.CurrentDomain.FriendlyName + ".xml";
@@ -57,14 +61,7 @@ namespace JwtAuthorizeInfoApi
                         Url = new Uri("https://www.cnblogs.com/hexsola1314/p/"),
                     },
                 });
-                //加载XML注释文档
-                // 第二参数includeControllerXmlComments 为true时控制器显示中文注释
                 option.IncludeXmlComments(xmlPath, true);
-                //可添加多份XML翻译档案 ，项目分布类所需要
-                //option.IncludeXmlComments(Path.Combine(basePath, "DownLoadHaoKanVideoAPI.xml"), true);
-                // include document file
-                // option.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{typeof(Startup).Assembly.GetName().Name}.xml"), true);
-
 
                 //开启加权锁
                 option.OperationFilter<AddResponseHeadersFilter>();
@@ -82,8 +79,8 @@ namespace JwtAuthorizeInfoApi
             });
             #endregion
 
-
             #region 添加验证服务
+
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;//把jwttoken的cliam的映射给关闭了，不修改授权服务器的cliam
             services.AddAuthorization(options =>
             {
@@ -111,17 +108,60 @@ namespace JwtAuthorizeInfoApi
                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("JWT")["IssuerSigningKey"]))
                         };
                     });
-            services.AddAuthorization();
+
+            services.AddAuthorization(options =>
+            {
+                var customizepolicyrequirment = new CustomizePolicyRequirment
+                {
+                    ClaimType = ClaimTypes.Role,
+                    Expiration = TimeSpan.FromMinutes(60),//接口的过期时间
+                    Roles = new List<Role>()
+                };
+                // 策略授权 1.基于角色
+                //options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());//单独角色
+                //options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
+                //options.AddPolicy("SystemOrAdmin", policy => policy.RequireRole("Admin", "System"));//或的关系
+                //options.AddPolicy("SystemAndAdmin", policy => policy.RequireRole("Admin").RequireRole("System"));//且的关系
+                //2.基于声明
+                //options.AddPolicy("AdminClaim2", o => { o.RequireClaim("Role", "Admin", "User"); });
+
+                //3.基于需要的Requirement  完全自定义 大多数都使用这个
+
+                options.AddPolicy("CustomizePolicy", o => { o.Requirements.Add(customizepolicyrequirment); });
+            });
+
+            services.AddSingleton<IAuthorizationHandler, CustomizePolicyHandler>();
             #endregion
 
+            #region automapper
+            //var result = AppDomain.CurrentDomain.GetAssemblies();
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.UserProfile).Assembly);
+            services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.RoleProfile).Assembly);
+
+            #endregion
+
+            // HttpContextSetup
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
         }
+        #region autofac
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new AutofacModule());
+        }
+        #endregion
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(env.WebRootPath),
+                RequestPath = new PathString("/src")
+            });
             app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(option =>
@@ -133,7 +173,7 @@ namespace JwtAuthorizeInfoApi
             });
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

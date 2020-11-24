@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvanBackstageApi.Entity", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientAuthorizeInfo", "ClientAuthorizeInfo\ClientAuthorizeInfo.csproj", "{A3ED83BF-19E0-4C8F-9C8D-68D96B81D0F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuthorizeInfoApi", "JwtAuthorizeInfoApi\JwtAuthorizeInfoApi.csproj", "{26E89824-E877-4DE2-B6FE-37E3F3FD4723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthorizeInfoApi", "JwtAuthorizeInfoApi\JwtAuthorizeInfoApi.csproj", "{26E89824-E877-4DE2-B6FE-37E3F3FD4723}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvanBackstageApi.Extensions", "EvanBackstageApi.Extensions\EvanBackstageApi.Extensions.csproj", "{7A6DB72F-8152-4E2A-B6C4-38F21F92997E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuthorizeInfoApi.OtherHelp", "JwtAuthorizeInfoApi.OtherHelp\JwtAuthorizeInfoApi.OtherHelp.csproj", "{DF37C6F1-A2A9-45D3-A09B-2C83BF3C81D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{26E89824-E877-4DE2-B6FE-37E3F3FD4723}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E89824-E877-4DE2-B6FE-37E3F3FD4723}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E89824-E877-4DE2-B6FE-37E3F3FD4723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6DB72F-8152-4E2A-B6C4-38F21F92997E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6DB72F-8152-4E2A-B6C4-38F21F92997E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6DB72F-8152-4E2A-B6C4-38F21F92997E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6DB72F-8152-4E2A-B6C4-38F21F92997E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF37C6F1-A2A9-45D3-A09B-2C83BF3C81D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF37C6F1-A2A9-45D3-A09B-2C83BF3C81D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF37C6F1-A2A9-45D3-A09B-2C83BF3C81D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF37C6F1-A2A9-45D3-A09B-2C83BF3C81D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
