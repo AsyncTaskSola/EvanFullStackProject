@@ -25,5 +25,9 @@
     <ProjectReference Include="..\EvanBackstageApi.Repository\EvanBackstageApi.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 
 </Project>

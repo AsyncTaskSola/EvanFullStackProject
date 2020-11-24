@@ -8,8 +8,13 @@ namespace EvanBackstageApi.Extensions.AutoMapper
     {
         public UserProfile()
         {
+            CreateMap<User, V_UserDto>();
             CreateMap<V_UserLoginDto, User>();
-            CreateMap<User, V_UserDto>();          
+            CreateMap<V_UserUpdateDto, User>()
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(s => s.NewPassword));
+            CreateMap<User, V_UsersViewDto>();
+            CreateMap<V_UserAddDto, User>();
+            CreateMap<V_SysUserDto, User>();
         }     
     }
 }

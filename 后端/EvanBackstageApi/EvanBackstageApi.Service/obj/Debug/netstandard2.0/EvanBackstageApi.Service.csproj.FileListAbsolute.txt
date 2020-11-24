@@ -52,3 +52,5 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Service\obj\Debug\netstandard2.0\EvanBackstageApi.Service.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Service\obj\Debug\netstandard2.0\EvanBackstageApi.Service.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Service\obj\Debug\netstandard2.0\EvanBackstageApi.Service.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Service\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Service\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.pdb

@@ -19,13 +19,10 @@ namespace JwtAuthorizeInfoApi
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                //var sugar = services.GetRequiredService<IUnitOfWork>();
-                //await sugar.Init();
-
                 var IConfiguration = services.GetRequiredService<IConfiguration>();
                 UnitOfWork unitOfWork = new UnitOfWork(IConfiguration);
                 // 初始化数据库和建表
-                await unitOfWork.Init();
+                //await unitOfWork.Init();
             }
 
             await host.RunAsync();

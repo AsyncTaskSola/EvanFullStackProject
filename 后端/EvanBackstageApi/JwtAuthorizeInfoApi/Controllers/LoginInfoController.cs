@@ -5,15 +5,20 @@ using EvanBackstageApi.Extensions.AuthHelper.OverWrite;
 using EvanBackstageApi.IService.IJwtAuthorizeInfoService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using EvanBackstageApi.Entity.CEG;
+using EvanBackstageApi.Entity.JwtAuthorizeInfo.Root;
 
 namespace JwtAuthorizeInfoApi.Controllers
 {
     [ApiController]
     [Area("UserInfo")]
     [Route("api/[area]/[controller]")]
+    [Authorize("CustomizePolicy")]
     public class LoginInfoController : ControllerBase
     {
         private readonly IUserService _userservices;
@@ -66,6 +71,54 @@ namespace JwtAuthorizeInfoApi.Controllers
             //});
             #endregion
         }
+
+        [HttpPost("Logout")]
+        [AllowAnonymous]
+        public async Task<JwtResultModel<dynamic>> Logout(Guid Id)
+        {
+            return await _userservices.Logout(Id);
+        }
+
+        [HttpPost("update")]
+        [AllowAnonymous]
+        public async Task<ActionResult<JwtResultModel<V_UserDto>>> Update([FromForm] V_UserUpdateDto update)
+        {
+            return await _userservices.Update(update);
+        }
+
+        [HttpPost("Delete")]
+        public async Task<JwtResultModel<dynamic>> Delete(Guid Id)
+        {
+            return await _userservices.DeleteId(Id);
+        }
+
+
+        [HttpPost("Add")]
+        public async Task<JwtResultModel<V_UserDto>> Add(V_UserAddDto V_user)
+        {
+            return await _userservices.AddUser(V_user);
+        }
+
+        [HttpPost("GetUserById")]
+        public async Task<JwtResultModel<V_SysUserDto>> GetUserById(Guid userid)
+        {
+            return await _userservices.CheckUserInfo(userid);
+        }
+
+        [HttpPost("GetUsers")]
+        [AllowAnonymous]
+        public async Task<JwtResultModel<List<V_UserDto>>> GetUsers(int pageSize, int pageindex, string oderyFont)
+        {
+            var t = 0;
+            Expression<Func<User, bool>> exp = c => true;
+            var uselist = _userservices.Query(exp, pageindex, pageSize, oderyFont, out t).ToList();
+            return await _userservices.Mapperdata(uselist);
+        }
+
+
+
+
+
         [HttpGet]
         //[Authorize(Policy = "SystemOrAdmin")] 方法1
         [Authorize(Policy = "CustomizePolicy")]       

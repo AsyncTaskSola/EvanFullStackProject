@@ -26,7 +26,7 @@ namespace EvanBackstageApi.Entity.JwtAuthorizeInfo.Root
         [SugarColumn(ColumnDataType = "nvarchar", Length = 32)]
         public string Password { get; set; }
         /// <summary>
-        /// 头像
+        /// 头像连接
         /// </summary>
         [SugarColumn(Length = 255, IsNullable = true)]
         public string Avatar { get; set; }

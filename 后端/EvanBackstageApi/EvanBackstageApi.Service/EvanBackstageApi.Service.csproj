@@ -6,12 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EvanBackstageApi.IRepository\EvanBackstageApi.IRepository.csproj" />
     <ProjectReference Include="..\EvanBackstageApi.IService\EvanBackstageApi.IService.csproj" />
     <ProjectReference Include="..\EvanBackstageApi.Repository\EvanBackstageApi.Repository.csproj" />
+    <ProjectReference Include="..\JwtAuthorizeInfoApi.OtherHelp\JwtAuthorizeInfoApi.OtherHelp.csproj" />
   </ItemGroup>
 
 </Project>

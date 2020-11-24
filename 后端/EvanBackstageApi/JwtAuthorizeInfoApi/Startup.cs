@@ -8,13 +8,17 @@ using Autofac;
 using AutoMapper;
 using EvanBackstageApi.Entity.JwtAuthorizeInfo.Root;
 using EvanBackstageApi.Extensions;
+using EvanBackstageApi.IRepository.IJwtAuthorizeInfoRepository;
+using EvanBackstageApi.Repository.JwtAuthorizeInfoRepository;
 using JwtAuthorizeInfoApi.PolicyRequirment;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -34,7 +38,6 @@ namespace JwtAuthorizeInfoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
             #region swagger service
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             var xmlFile = AppDomain.CurrentDomain.FriendlyName + ".xml";
@@ -111,7 +114,7 @@ namespace JwtAuthorizeInfoApi
                 var customizepolicyrequirment = new CustomizePolicyRequirment
                 {
                     ClaimType = ClaimTypes.Role,
-                    Expiration = TimeSpan.FromMinutes(60),
+                    Expiration = TimeSpan.FromMinutes(60),//接口的过期时间
                     Roles = new List<Role>()
                 };
                 // 策略授权 1.基于角色
@@ -135,9 +138,12 @@ namespace JwtAuthorizeInfoApi
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.UserProfile).Assembly);
             services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.RoleProfile).Assembly);
-            
+
             #endregion
 
+            // HttpContextSetup
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
         }
         #region autofac
         public void ConfigureContainer(ContainerBuilder builder)
@@ -151,7 +157,11 @@ namespace JwtAuthorizeInfoApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(env.WebRootPath),
+                RequestPath = new PathString("/src")
+            });
             app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(option =>

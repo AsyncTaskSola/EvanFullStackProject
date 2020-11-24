@@ -95,3 +95,8 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.OtherHelp.dll
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.OtherHelp.pdb
