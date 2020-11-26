@@ -18,14 +18,14 @@ namespace EvanBackstageApi.Repository.JwtAuthorizeInfoRepository
         }
         public Guid Id => new Guid(GetClaimValueByType("jti").FirstOrDefault());
 
+        public List<string> GetClaimValueByType(string ClaimType)
+        {
+            var result= GetClaimsIdentity().Where(x => x.Type == ClaimType).Select(x => x.Value).ToList();
+            return result;
+        }
         public IEnumerable<Claim> GetClaimsIdentity()
         {
             return _accessor.HttpContext.User.Claims;
-        }
-
-        public List<string> GetClaimValueByType(string ClaimType)
-        {
-            return GetClaimsIdentity().Where(x => x.Type == ClaimType).Select(x => x.Value).ToList();
         }
     }
 }

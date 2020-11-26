@@ -10,8 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using EvanBackstageApi.Entity.CEG;
 using EvanBackstageApi.Entity.JwtAuthorizeInfo.Root;
+using EvanBackstageApi.Repository;
 
 namespace JwtAuthorizeInfoApi.Controllers
 {
@@ -99,33 +99,64 @@ namespace JwtAuthorizeInfoApi.Controllers
             return await _userservices.AddUser(V_user);
         }
 
-        [HttpPost("GetUserById")]
+        [HttpGet("GetUserById")]
         public async Task<JwtResultModel<V_SysUserDto>> GetUserById(Guid userid)
         {
             return await _userservices.CheckUserInfo(userid);
         }
 
-        [HttpPost("GetUsers")]
+        [HttpGet("GetUsers")]
         [AllowAnonymous]
         public async Task<JwtResultModel<List<V_UserDto>>> GetUsers(int pageSize, int pageindex, string oderyFont)
         {
             var t = 0;
             Expression<Func<User, bool>> exp = c => true;
             var uselist = _userservices.Query(exp, pageindex, pageSize, oderyFont, out t).ToList();
-            return await _userservices.Mapperdata(uselist);
+            var result= await _userservices.Mapperdata(uselist);
+            result.Total = t;
+            return result;
         }
-
-
-
-
-
-        [HttpGet]
-        //[Authorize(Policy = "SystemOrAdmin")] 方法1
-        [Authorize(Policy = "CustomizePolicy")]       
-        public ActionResult<IEnumerable<string>> Get()
+        /// <summary>
+        /// 是否被停用
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        [HttpPost("Disable")]
+        public async Task<JwtResultModel<dynamic>> Disable(Guid userid)
         {
-            var t = User;
-            return new string[] { "value1", "value2" };
+            //判断
+           return await _userservices.DisableUser(userid);
         }
+
+        /// <summary>
+        /// 密码重设，默认登陆密码为123456 | [前端若登陆次数满了，可以选择忘记密码]
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("ResetPassword")]
+        public async Task<JwtResultModel<dynamic>> ResetPassword(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var result = await _userservices.QueryFirst(x => x.Name == name || x.Account == name);
+                if (result != null)
+                {
+                    result.Password = MD5Helper.Md5Str("123455");
+                    result.Status = false;
+                    result.IsDisable = false;
+                    await _userservices.Update(result);
+                }
+                return new JwtResultModel<dynamic> { Message = "重设密码成功（密码为123456）", State = JwtResultType.Success };
+            }
+            return new JwtResultModel<dynamic> { Message = "重设失败，请输入对应的用户名和账号id", State = JwtResultType.Error };
+        }
+
+        //[HttpGet]
+        ////[Authorize(Policy = "SystemOrAdmin")] 方法1
+        //[Authorize(Policy = "CustomizePolicy")]       
+        //public ActionResult<IEnumerable<string>> Get()
+        //{
+        //    var t = User;
+        //    return new string[] { "value1", "value2" };
+        //}
     }
 }

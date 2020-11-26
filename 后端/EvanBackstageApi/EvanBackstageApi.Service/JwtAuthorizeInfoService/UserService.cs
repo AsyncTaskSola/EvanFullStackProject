@@ -273,6 +273,24 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
             return new JwtResultModel<List<V_UserDto>> { Message = "查询成功", State = JwtResultType.Success, Data = vuser };
         }
 
+        public async Task<JwtResultModel<dynamic>> DisableUser(Guid userid)
+        {
+            var userisinit = await _dal.QueryFirst(x => x.Id == userid && !x.IsInit);
+            if (userisinit != null)
+            {
+                return new JwtResultModel<dynamic>{Message="初始用户不能暂停"};
+            }
+            //不可暂停当前当前登陆用户
+            var createid = _user.Id;
+            if (createid == userid)
+            {
+                return new JwtResultModel<dynamic> { Message = "不可暂停当前登陆用户" };
+            }
+            var user = new User { Id = userid, Status = false, IsDisable = true };
+            await _dal.Update(user);
+            return new JwtResultModel<dynamic> { Message = "该用户暂停成功", State = JwtResultType.Success };
+        }
+
         /// <summary>
         /// 获取权限组
         /// </summary>

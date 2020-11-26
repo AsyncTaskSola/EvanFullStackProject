@@ -4,6 +4,37 @@
         <name>JwtAuthorizeInfoApi</name>
     </assembly>
     <members>
+        <member name="M:JwtAuthorizeInfoApi.Controllers.LoginInfoController.Disable(System.Guid)">
+            <summary>
+            是否被停用
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JwtAuthorizeInfoApi.Controllers.LoginInfoController.ResetPassword(System.String)">
+            <summary>
+            密码重设，默认登陆密码为123456 | [前端若登陆次数满了，可以选择忘记密码]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JwtAuthorizeInfoApi.Controllers.PageController">
+            <summary>
+            页面控制器
+            </summary>
+        </member>
+        <member name="M:JwtAuthorizeInfoApi.Controllers.PageController.GetMenu">
+            <summary>
+            获取菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JwtAuthorizeInfoApi.Controllers.RoleController.Delete(System.Guid)">
+            <summary>
+            假删除更新对应字段状态
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyHandler">
             <summary>
             自定义策略授权

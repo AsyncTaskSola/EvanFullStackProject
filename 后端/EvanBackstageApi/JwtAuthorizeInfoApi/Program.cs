@@ -22,7 +22,7 @@ namespace JwtAuthorizeInfoApi
                 var IConfiguration = services.GetRequiredService<IConfiguration>();
                 UnitOfWork unitOfWork = new UnitOfWork(IConfiguration);
                 // 初始化数据库和建表
-                //await unitOfWork.Init();
+               // await unitOfWork.Init();
             }
 
             await host.RunAsync();

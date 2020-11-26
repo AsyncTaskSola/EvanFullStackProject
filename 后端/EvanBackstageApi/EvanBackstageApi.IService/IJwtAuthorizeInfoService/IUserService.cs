@@ -20,6 +20,10 @@ namespace EvanBackstageApi.IService.IJwtAuthorizeInfoService
         Task<JwtResultModel<V_SysUserDto>> CheckUserInfo(Guid id);
 
         Task<JwtResultModel<List<V_UserDto>>> Mapperdata(List<User> userList);
+
+        Task<JwtResultModel<dynamic>> DisableUser(Guid id);
+
+        Task<List<Role>> GetRoles(Guid userid);
     }
     
 }
