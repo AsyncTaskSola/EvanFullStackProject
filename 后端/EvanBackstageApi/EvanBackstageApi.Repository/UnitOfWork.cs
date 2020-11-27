@@ -217,104 +217,104 @@ namespace EvanBackstageApi.Repository
             #endregion
 
             #region 菜单表初始
-            //if (!db.Queryable<RoleMenu>().Any())
-            //{
-            //    try
-            //    {
-            //        Console.WriteLine("初始菜单表");
-            //        Console.WriteLine("初始一级菜单");
-            //        var menus = new List<Menu>
-            //        {
-            //            new Menu()
-            //            {
-            //                Name = "首页",
-            //                Icon = "el-icon-s-home",
-            //                Module = "home",
-            //                IsInit = true,
-            //                Index = 1
-            //            },
-            //            new Menu()
-            //            {
-            //                Name = "工单项目",
-            //                Icon = "el-icon-s-platform",
-            //                Module = "projects",
-            //                IsInit = true,
-            //                Index = 2
-            //            },
-            //            new Menu()
-            //            {
-            //                Name = "用户管理",
-            //                Icon = "el-icon-user-solid",
-            //                Module = "users",
-            //                IsInit = true,
-            //                IsAuth = true,
-            //                Index = 97
-            //            },
-            //            new Menu()
-            //            {
-            //                Name = "权限管理",
-            //                Icon = "el-icon-s-help",
-            //                Module = "auth",
-            //                IsInit = true,
-            //                IsAuth = true,
-            //                Index = 98
-            //            },
-            //            new Menu()
-            //            {
-            //                Name = "系统设置",
-            //                Icon = "el-icon-s-tools",
-            //                Module = "system",
-            //                IsInit = true,
-            //                Index = 99
-            //            }
-            //        };
-            //        db.Insertable<Menu>(menus).ExecuteCommand();
-            //        Console.WriteLine("初始权限管理二级菜单");
-            //        var auth = db.Queryable<Menu>().First(m => m.Name == "权限管理");
-            //        var authMenus = new List<Menu>
-            //        {
-            //            new Menu()
-            //            {
-            //                Name = "角色管理",
-            //                Module = "roles",
-            //                Pid = auth.Id,
-            //                IsInit = true,
-            //                IsAuth = true,
-            //                Index = 1
-            //            },
-            //            new Menu()
-            //            {
-            //                Name = "菜单设置",
-            //                Module = "menus",
-            //                Pid = auth.Id,
-            //                IsInit = true,
-            //                IsAuth = true,
-            //                Index = 2
-            //            },
-            //        };
-            //        db.Insertable<Menu>(authMenus).ExecuteCommand();
-            //        Console.WriteLine("权限菜单关联Admin");
-            //        // 需要关联的菜单
-            //        var needMenus = db.Queryable<Menu>().Where(m => m.Name == "用户管理" || m.Name == "权限管理" || m.Name == "角色管理" || m.Name == "菜单设置").ToList();
+            if (!db.Queryable<RoleMenu>().Any())
+            {
+                try
+                {
+                    Console.WriteLine("初始菜单表");
+                    Console.WriteLine("初始一级菜单");
+                    var menus = new List<Menu>
+                    {
+                        new Menu()
+                        {
+                            Name = "首页",
+                            Icon = "el-icon-s-home",
+                            Module = "home",
+                            IsInit = true,
+                            Index = 1
+                        },
+                        new Menu()
+                        {
+                            Name = "工单项目",
+                            Icon = "el-icon-s-platform",
+                            Module = "projects",
+                            IsInit = true,
+                            Index = 2
+                        },
+                        new Menu()
+                        {
+                            Name = "用户管理",
+                            Icon = "el-icon-user-solid",
+                            Module = "users",
+                            IsInit = true,
+                            IsAuth = true,
+                            Index = 97
+                        },
+                        new Menu()
+                        {
+                            Name = "权限管理",
+                            Icon = "el-icon-s-help",
+                            Module = "auth",
+                            IsInit = true,
+                            IsAuth = true,
+                            Index = 98
+                        },
+                        new Menu()
+                        {
+                            Name = "系统设置",
+                            Icon = "el-icon-s-tools",
+                            Module = "system",
+                            IsInit = true,
+                            Index = 99
+                        }
+                    };
+                    db.Insertable(menus).ExecuteCommand();
+                    Console.WriteLine("初始权限管理二级菜单");
+                    var auth = db.Queryable<Menu>().First(m => m.Name == "权限管理");
+                    var authMenus = new List<Menu>
+                    {
+                        new Menu()
+                        {
+                            Name = "角色管理",
+                            Module = "roles",
+                            Pid = auth.Id,
+                            IsInit = true,
+                            IsAuth = true,
+                            Index = 1
+                        },
+                        new Menu()
+                        {
+                            Name = "菜单设置",
+                            Module = "menus",
+                            Pid = auth.Id,
+                            IsInit = true,
+                            IsAuth = true,
+                            Index = 2
+                        },
+                    };
+                    db.Insertable(authMenus).ExecuteCommand();
+                    Console.WriteLine("权限菜单关联Admin");
+                    // 需要关联的菜单
+                    var needMenus = db.Queryable<Menu>().Where(m => m.Name == "用户管理" || m.Name == "权限管理" || m.Name == "角色管理" || m.Name == "菜单设置").ToList();
 
-            //        var admin = db.Queryable<Role>().First(r => r.Code == "Admin");
-            //        var roleMenus = new List<RoleMenu>();
-            //        needMenus.ForEach(m =>
-            //        {
-            //            var rm = new RoleMenu
-            //            {
-            //                RoleId = admin.Id,
-            //                MenuId = m.Id
-            //            };
-            //            roleMenus.Add(rm);
-            //        });
-            //        db.Insertable<RoleMenu>(roleMenus).ExecuteCommand();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        throw new Exception(ex.Message);
-            //    }
-            //}
+                    var admin = db.Queryable<Role>().First(r => r.Code == "Admin");
+                    var roleMenus = new List<RoleMenu>();
+                    needMenus.ForEach(m =>
+                    {
+                        var rm = new RoleMenu
+                        {
+                            RoleId = admin.Id,
+                            MenuId = m.Id
+                        };
+                        roleMenus.Add(rm);
+                    });
+                    db.Insertable(roleMenus).ExecuteCommand();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
             #endregion
         }
 

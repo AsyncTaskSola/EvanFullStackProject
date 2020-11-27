@@ -7,6 +7,9 @@ using EvanBackstageApi.Repository.JwtAuthorizeInfoRepository;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using EvanBackstageApi.Entity.JwtAuthorizeInfo.Base;
+using EvanBackstageApi.Entity.JwtAuthorizeInfo.JwtViewMapperDtoModel.RoleProfiles;
 
 namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
 {
@@ -22,5 +25,6 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
             _mapper = mapper;
             BaseDal = _dal;
         }
+
     }
 }

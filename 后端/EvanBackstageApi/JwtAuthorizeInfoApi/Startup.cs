@@ -113,7 +113,7 @@ namespace JwtAuthorizeInfoApi
             {
                 var customizepolicyrequirment = new CustomizePolicyRequirment
                 {
-                    ClaimType = ClaimTypes.Role,
+                    ClaimType = ClaimTypes.Role,//这个地方是重点啊,后面会不要用到
                     Expiration = TimeSpan.FromMinutes(60),//接口的过期时间
                     Roles = new List<Role>()
                 };
@@ -138,7 +138,7 @@ namespace JwtAuthorizeInfoApi
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.UserProfile).Assembly);
             services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.RoleProfile).Assembly);
-
+            services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.PageProfile).Assembly);
             #endregion
 
             // HttpContextSetup
