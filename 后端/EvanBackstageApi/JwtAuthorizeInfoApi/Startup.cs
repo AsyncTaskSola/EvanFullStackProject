@@ -141,6 +141,19 @@ namespace JwtAuthorizeInfoApi
             services.AddAutoMapper(typeof(EvanBackstageApi.Extensions.AutoMapper.PageProfile).Assembly);
             #endregion
 
+            #region 跨域
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "Policy1",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://127.0.0.1:8082", "http://localhost:8082")    //这里实际是前端写的接口
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+            #endregion
+
             // HttpContextSetup
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();
@@ -163,6 +176,9 @@ namespace JwtAuthorizeInfoApi
                 RequestPath = new PathString("/src")
             });
             app.UseRouting();
+            #region Cors
+            app.UseCors("Policy1");
+            #endregion
             app.UseSwagger();
             app.UseSwaggerUI(option =>
             {

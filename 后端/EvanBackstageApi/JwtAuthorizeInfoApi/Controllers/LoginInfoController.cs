@@ -17,7 +17,7 @@ namespace JwtAuthorizeInfoApi.Controllers
 {
     [ApiController]
     [Area("UserInfo")]
-    [Route("api/[area]/[controller]")]
+    [Route("api/[controller]")]
     [Authorize("CustomizePolicy")]
     public class LoginInfoController : ControllerBase
     {
@@ -133,6 +133,7 @@ namespace JwtAuthorizeInfoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("ResetPassword")]
+        [AllowAnonymous]
         public async Task<JwtResultModel<dynamic>> ResetPassword(string name)
         {
             if (!string.IsNullOrEmpty(name))
@@ -144,8 +145,10 @@ namespace JwtAuthorizeInfoApi.Controllers
                     result.Status = false;
                     result.IsDisable = false;
                     await _userservices.Update(result);
+
+                    return new JwtResultModel<dynamic> {Message = "重设密码成功（密码为123456）", State = JwtResultType.Success};
                 }
-                return new JwtResultModel<dynamic> { Message = "重设密码成功（密码为123456）", State = JwtResultType.Success };
+                return new JwtResultModel<dynamic> { Message = "重设失败，请输入对应的用户名和账号id", State = JwtResultType.Error };
             }
             return new JwtResultModel<dynamic> { Message = "重设失败，请输入对应的用户名和账号id", State = JwtResultType.Error };
         }

@@ -1,0 +1,47 @@
+<template>
+  <div id="home" class="pageContainer">
+    <div class="menuWrapper">
+      <NavMenu />
+    </div>
+    <div class="homeContainer">
+      <div class="pageInfo">
+          <TopBar />
+      </div>
+      <div class="homeWrapper"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavMenu from "./components/NavMenu/index";
+import TopBar from "./components/TopBar/index";
+export default {
+  name:'home',
+  components: {
+    NavMenu,
+    TopBar
+  },
+  computed: {
+    userInfo() {
+      return this.$store.getters["user/userInfo"];
+    },
+  },
+  data() {
+    return {};
+  },
+  async created() {    
+    this.$notify({
+      title: this.userInfo.name,
+      type: "success",
+      message: "欢迎回来",
+      duration: 2000,
+      showClose: false,
+    });
+    this.$store.dispatch("global/setMenus");
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/css/home.scss";
+</style>

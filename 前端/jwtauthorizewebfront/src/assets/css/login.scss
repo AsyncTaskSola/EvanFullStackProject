@@ -1,0 +1,95 @@
+#login{
+    background-image: url("../../assets/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .loginContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        .loginWrapper{
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(45, 52, 54, .8);
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+            h1 {
+                font-size: 32px;
+                color: rgb(245, 245, 220);
+            }
+            .formWrapper{
+                margin-top: 10px;
+                width: 100%;  
+                /deep/.el-form-item:nth-last-child(1) {
+                    margin-bottom: 0;
+                }
+            }
+            input{
+                padding: 10px 10px;
+                text-align: center;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid #fff;
+                font-family: 'Play',sans-serif;
+                font-size: 16px;
+                transition: border 0.5s;
+                outline: none;
+                color: #fff;
+                font-weight: bold;
+                box-sizing: border-box;
+            }
+        }
+        .passwordWrapper {
+            position: relative;
+            overflow: hidden;
+            .el-icon-view {
+                position: absolute;
+                top: 0;
+                right: 0;
+                line-height: 42px;
+                width: 30px;
+                height: 42px;
+                font-size: 18px;
+                text-align: center;
+                color: #ffffff;
+                cursor: pointer;
+                &.pwdView:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: #fff;
+                    transform: translateY(-1px) rotate(-45deg) scale(0.8);
+                }
+            }
+        }
+        .button{
+            margin: 10px auto 0;
+            padding: 12px 45px;
+            line-height: 1;
+            width: 60%;
+            border-radius: 20px;
+            background-color:#ff4b2b;
+            color:#fff ;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;;
+            letter-spacing: 1px;
+            cursor: pointer;
+            user-select: none;
+            text-transform: none;
+            transition: transform 80ms ease-in;
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+}
