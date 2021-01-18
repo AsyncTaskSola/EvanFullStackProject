@@ -1,6 +1,6 @@
 <template>
   <div class="menuCtrl" @click="handerClick">
-    <i class="icon" :class="fold"></i>
+    <i class="icon" :class="fold ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
   </div>
 </template>
 
@@ -9,17 +9,24 @@ export default {
 name:'MenuCtrl',
 data(){
     return {
-        flod=false
+        fold:false
     }
 },
 methods:{
     handerClick(){
-        this.flod=!this.flod;
-        this.$store.commit()
+        this.fold=!this.fold;
+        this.$store.commit('global/menuCtrl',this.fold)
     }
 }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.menuCtrl {
+  margin-right: 10px;
+  cursor: pointer;
+  .icon {
+    font-size: 20px;
+  }
+}
 </style>

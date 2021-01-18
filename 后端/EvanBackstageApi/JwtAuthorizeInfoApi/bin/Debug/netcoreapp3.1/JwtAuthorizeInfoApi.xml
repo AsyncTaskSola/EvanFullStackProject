@@ -35,6 +35,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:JwtAuthorizeInfoApi.Controllers.RoleController.UpdateURInfo(EvanBackstageApi.Entity.JwtAuthorizeInfo.Root.UserRole)">
+            <summary>
+            更新当前用户的角色 （缺陷应该role有等级设计，只会显示最高层级的修改，在role应该会看到当前用户等级树的排列）
+            </summary>
+            <param name="userRole"></param>
+            <returns></returns>
+        </member>
         <member name="T:JwtAuthorizeInfoApi.PolicyRequirment.CustomizePolicyHandler">
             <summary>
             自定义策略授权

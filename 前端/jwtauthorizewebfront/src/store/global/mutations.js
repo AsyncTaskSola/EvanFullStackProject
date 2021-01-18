@@ -14,8 +14,12 @@ const mutations={
         getOneArr(map,menus.data);
         console.log('拆分菜单',map);       
         state.menusMap = map;
-    }
+    },
     // 菜单的图标
+    [types.MENU_CTRL](state,fold)
+    {
+        state.fold=fold;
+    }
 }
 
 //拆分菜单

@@ -11,14 +11,11 @@ namespace JwtAuthorizeInfoApi.OtherHelp
 {
     public class FileHelper : IDisposable
     {
-        private static IHostingEnvironment _webHostEnvironment;
-        private static IConfiguration _configuration;
+
         private bool _alreadyDispose = false;
         #region 构造函数
-        public FileHelper(IHostingEnvironment webHostEnvironment, IConfiguration configuration)
+        public FileHelper()
         {
-            _webHostEnvironment = webHostEnvironment;
-            _configuration = configuration;
         }
         ~FileHelper()
         {
@@ -67,7 +64,7 @@ namespace JwtAuthorizeInfoApi.OtherHelp
         }
         #endregion
 
-        public static async Task<AvatarRes> WriteAvatar(IFormFile avatar, Guid uid)
+        public static async Task<AvatarRes> WriteAvatar(IFormFile avatar, Guid uid, IHostingEnvironment _webHostEnvironment, IConfiguration _configuration)
         {
             var file = avatar;
             var types = new string[] { "image/jpeg", "image/jpg", "image/png", "image/gif" };
@@ -97,7 +94,8 @@ namespace JwtAuthorizeInfoApi.OtherHelp
                 using (var stream = file.OpenReadStream())
                 {
                     var bytes = new byte[stream.Length];
-                    await fs.WriteAsync(bytes, 0, bytes.Length);
+                    stream.Read(bytes, 0, bytes.Length);
+                    fs.Write(bytes, 0, bytes.Length);
                 }
             }
             var link = _configuration.GetValue(typeof(String), "URLS") + $"/src/avatar/{uid}{type}";

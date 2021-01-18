@@ -32,5 +32,11 @@ namespace EvanBackstageApi.Entity.JwtAuthorizeInfo.JwtViewMapperDtoModel.UserPro
         /// </summary>
         [Required(ErrorMessage = "请选择权限")]
         public List<Guid> Roles { get; set; }
+        public bool Status { get; set; } = false;
+        /// <summary>
+        /// 是否初始
+        /// </summary>
+        public bool IsInit { get; set; } = false;
+
     }
 }

@@ -35,7 +35,7 @@ namespace JwtAuthorizeInfoApi.Controllers
 
         [HttpGet("GetRole")]
         [AllowAnonymous]
-        public async Task<JwtResultModel<List<V_RoleDto>>> GetRole(int pageSize, int pageindex, string oderyFont)
+        public async Task<JwtResultModel<List<V_RoleDto>>> GetRole(int pageSize, int pageindex, string oderyFont=null)
         {
             int t = 0;
             Expression<Func<Role, bool>> exp = c => true;
@@ -82,6 +82,22 @@ namespace JwtAuthorizeInfoApi.Controllers
             var role = _mapper.Map<Role>(vRoleUpdate);
             await _roleService.Update(role);
             return new JwtResultModel<Role> { Message = "更新成功", State = JwtResultType.Success };
+        }
+
+        /// <summary>
+        /// 更新当前用户的角色 （缺陷应该role有等级设计，只会显示最高层级的修改，在role应该会看到当前用户等级树的排列）
+        /// </summary>
+        /// <param name="userRole"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateURInfo")]
+        public async Task<JwtResultModel<dynamic>> UpdateURInfo(UserRole userRole)
+        {
+            if(userRole!=null)
+            {
+                JwtResultModel<dynamic> result = await _roleService.UpdateUserRoleInfo(userRole);
+                return result;
+            }
+            return new JwtResultModel<dynamic> { Message = "更新成功", State = JwtResultType.Success };
         }
     }
 }

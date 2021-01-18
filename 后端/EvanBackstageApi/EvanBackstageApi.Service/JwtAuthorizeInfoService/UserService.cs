@@ -14,22 +14,23 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using JwtAuthorizeInfoApi.OtherHelp;
+using Microsoft.Extensions.Configuration;
 
 namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
 {
     public class UserService : BaseService<User>, IUserService
     {
-        public IHostingEnvironment WebHostEnvironment { get; }
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _dal;
         private readonly IMapper _mapper;
         private readonly IUser _user;
         private readonly IBaseRepository<Role> _roledal;
         private readonly IBaseRepository<UserRole> _useroledal;
+        private readonly IHostingEnvironment _webHostEnvironment;
+        private readonly IConfiguration _configuration;
 
-        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IHostingEnvironment webHostEnvironment,IUser user, IBaseRepository<Role> roledal, IBaseRepository<UserRole> useroledal)
+        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IHostingEnvironment webHostEnvironment,IUser user, IBaseRepository<Role> roledal, IBaseRepository<UserRole> useroledal, IHostingEnvironment WebHostEnvironment, IConfiguration configuration)
         {
-            WebHostEnvironment = webHostEnvironment;
             _unitOfWork = unitOfWork;
             _dal = new UserRepository(unitOfWork);
             BaseDal = _dal;
@@ -37,6 +38,8 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
             _user = user;
             _roledal = roledal;
             _useroledal = useroledal;
+            _webHostEnvironment = WebHostEnvironment;
+            _configuration = configuration;
         }
         /// <summary>
         /// 登陆
@@ -143,21 +146,27 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
         {
             var user = await _dal.QueryFirst(x => x.Id == UserUpdateDto.Id);
             var updateColumns = new List<string>();
-            if (UserUpdateDto.OldPassword == null || UserUpdateDto.NewPassword == null)
+            if (UserUpdateDto.OldPassword == null && UserUpdateDto.NewPassword != null)
             {
-                return new JwtResultModel<V_UserDto> { Message = "密码不能为空" };
+                return new JwtResultModel<V_UserDto> { Message = "旧密码不能为空" };
             }
-            if (UserUpdateDto.OldPassword!=user.Password)
+            if (UserUpdateDto.OldPassword != null && MD5Helper.Md5Str(UserUpdateDto.OldPassword) != user.Password)
             {
-                return new JwtResultModel<V_UserDto> { Message = "请输入原有密码" };
+                return new JwtResultModel<V_UserDto> { Message = "旧密码不正确" };
             }
-            updateColumns.Add("Password");
+            else
+            {
+                if (UserUpdateDto.NewPassword != null)
+                {
+                    updateColumns.Add("Password");
+                }
+            }
             var updateUser = _mapper.Map<User>(UserUpdateDto);//[User]为目标源，()为要更新的数据源
             var V_UserDto = _mapper.Map<V_UserDto>(UserUpdateDto);
             //修改头像
             if (UserUpdateDto.Avatar != null)
             {
-                var avatarRes = await FileHelper.WriteAvatar(UserUpdateDto.Avatar, UserUpdateDto.Id);
+                var avatarRes = await FileHelper.WriteAvatar(UserUpdateDto.Avatar, UserUpdateDto.Id, _webHostEnvironment, _configuration);
                 if (avatarRes.Success)
                 {
                     updateColumns.Add("Avatar");
@@ -181,8 +190,8 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
         /// <returns></returns>
         public async Task<JwtResultModel<dynamic>> DeleteId(Guid id)
         {
-            var user =await _dal.QueryFirst(x => x.Id == id&&!x.IsDisable);
-            if (user != null)
+            var user =await _dal.QueryFirst(x => x.Id == id);
+            if (user != null && user.IsInit == true)
             {
                 return new JwtResultModel<dynamic> { Message = "初始用户不能删除" };
             }
@@ -275,10 +284,10 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
 
         public async Task<JwtResultModel<dynamic>> DisableUser(Guid userid)
         {
-            var userisinit = await _dal.QueryFirst(x => x.Id == userid && !x.IsInit);
+            var userisinit = await _dal.QueryFirst(x => x.Id == userid && x.IsInit);
             if (userisinit != null)
             {
-                return new JwtResultModel<dynamic>{Message="初始用户不能暂停"};
+                return new JwtResultModel<dynamic>{Message="初始用户不能禁用"};
             }
             //不可暂停当前当前登陆用户
             var createid = _user.Id;
@@ -287,8 +296,8 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
                 return new JwtResultModel<dynamic> { Message = "不可暂停当前登陆用户" };
             }
             var user = new User { Id = userid, Status = false, IsDisable = true };
-            await _dal.Update(user);
-            return new JwtResultModel<dynamic> { Message = "该用户暂停成功", State = JwtResultType.Success };
+            await _dal.Update(user,new string[] {"IsDisable"});
+            return new JwtResultModel<dynamic> { Message = "该用户禁用成功", State = JwtResultType.Success };
         }
 
         /// <summary>

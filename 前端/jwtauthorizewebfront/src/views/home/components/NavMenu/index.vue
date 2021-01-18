@@ -2,11 +2,11 @@
 <template>
   <el-menu
     :default-active="$route.name"
-    class="el-menu-vertical"
+    class="menu-vertical"
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b"
-    :collapse="flod"
+    :collapse="fold"
     unique-opened
     router
   >
@@ -44,8 +44,9 @@ export default {
     menus() {
       return this.$store.getters["global/menus"];
     },
-    flod() {
-      return this.$store.getters["global/flod"];
+    fold() {
+        //:collapse="fold" 	是否水平折叠收起菜单（仅在 mode 为 vertical 时可用）
+      return this.$store.getters["global/fold"];
     },
   },
 };
@@ -55,7 +56,9 @@ export default {
 .el-menu {
   height: 100%;
   border-right: 0;
-
+  &.menu-vertical:not(.el-menu--collapse) {
+    width: 200px;
+  }
   li[role="menuitem"] {
     border-top: 1px solid #37414b;
     border-bottom: 1px solid #1f262d;

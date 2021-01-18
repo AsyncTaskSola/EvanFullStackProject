@@ -14,7 +14,9 @@ namespace EvanBackstageApi.Extensions.AutoMapper
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(s => s.NewPassword));
             CreateMap<User, V_UsersViewDto>();
             CreateMap<V_UserAddDto, User>();
+            CreateMap<V_UserUpdateDto, V_UserDto>();
             CreateMap<V_SysUserDto, User>();
+            CreateMap<User, V_SysUserDto>();
         }     
     }
 }

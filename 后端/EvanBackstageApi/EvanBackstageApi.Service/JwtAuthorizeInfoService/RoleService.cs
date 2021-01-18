@@ -26,5 +26,25 @@ namespace EvanBackstageApi.Service.JwtAuthorizeInfoService
             BaseDal = _dal;
         }
 
+        public async Task<JwtResultModel<dynamic>> UpdateUserRoleInfo(UserRole userRole)
+        {
+            try
+            {
+                var userisinit = await _unitOfWork.GetDbClient().Queryable<User>().Where(x => x.Id == userRole.UserId && x.IsInit).FirstAsync();
+                if (userisinit != null)
+                {
+                    return new JwtResultModel<dynamic> { Message = "初始用户不能修改" };
+                }
+                var entity = await _unitOfWork.GetDbClient().Queryable<UserRole>().Where(x => x.UserId == userRole.UserId).FirstAsync();
+                entity.RoleId = userRole.RoleId;
+                await _unitOfWork.GetDbClient().Updateable<UserRole>(entity).ExecuteCommandAsync();
+                return new JwtResultModel<dynamic> { Message = "更新成功", State = JwtResultType.Success };
+            }
+            catch (Exception)
+            {
+                return new JwtResultModel<dynamic> { Message = "更新失败", State = JwtResultType.Error };
+            }
+            
+        }
     }
 }

@@ -94,7 +94,7 @@ namespace JwtAuthorizeInfoApi.Controllers
 
 
         [HttpPost("Add")]
-        public async Task<JwtResultModel<V_UserDto>> Add(V_UserAddDto V_user)
+        public async Task<JwtResultModel<V_UserDto>> Add(/*[FromForm]*/V_UserAddDto V_user)
         {
             return await _userservices.AddUser(V_user);
         }
@@ -102,7 +102,8 @@ namespace JwtAuthorizeInfoApi.Controllers
         [HttpGet("GetUserById")]
         public async Task<JwtResultModel<V_SysUserDto>> GetUserById(Guid userid)
         {
-            return await _userservices.CheckUserInfo(userid);
+            var result= await _userservices.CheckUserInfo(userid);
+            return result;
         }
 
         [HttpGet("GetUsers")]
@@ -110,10 +111,12 @@ namespace JwtAuthorizeInfoApi.Controllers
         public async Task<JwtResultModel<List<V_UserDto>>> GetUsers(int pageSize, int pageindex, string oderyFont)
         {
             var t = 0;
+            pageSize = 20;
             Expression<Func<User, bool>> exp = c => true;
             var uselist = _userservices.Query(exp, pageindex, pageSize, oderyFont, out t).ToList();
+            uselist = uselist.Where(x => x.IsDeleted == false).ToList();
             var result= await _userservices.Mapperdata(uselist);
-            result.Total = t;
+            result.Total = uselist.Count;
             return result;
         }
         /// <summary>

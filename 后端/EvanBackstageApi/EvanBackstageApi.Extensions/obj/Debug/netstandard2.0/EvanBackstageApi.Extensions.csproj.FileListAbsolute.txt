@@ -1,3 +1,7 @@
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\EvanBackstageApi.Extensions.deps.json
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\EvanBackstageApi.Extensions.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\EvanBackstageApi.Extensions.pdb
@@ -13,10 +17,6 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\EvanBackstageApi.Service.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\bin\Debug\netstandard2.0\JwtAuthorizeInfoApi.OtherHelp.pdb
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.csprojAssemblyReference.cache
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.AssemblyInfoInputs.cache
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.AssemblyInfo.cs
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Extensions\obj\Debug\netstandard2.0\EvanBackstageApi.Extensions.pdb

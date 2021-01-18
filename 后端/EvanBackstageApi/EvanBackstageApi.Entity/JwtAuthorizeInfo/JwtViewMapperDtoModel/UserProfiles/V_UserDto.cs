@@ -27,5 +27,7 @@ namespace EvanBackstageApi.Entity.JwtAuthorizeInfo.JwtViewMapperDtoModel.UserPro
         /// 用户权限组
         /// </summary>
         public List<V_RoleDto> Roles { get; set; }
+
+        public bool Status { get; set; }
     }
 }

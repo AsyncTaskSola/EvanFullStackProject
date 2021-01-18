@@ -1,3 +1,8 @@
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -87,12 +92,7 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\EvanBackstageApi.IService.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\EvanBackstageApi.Service.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\bin\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.OtherHelp.pdb
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csprojAssemblyReference.cache
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.AssemblyInfoInputs.cache
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.AssemblyInfo.cs
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.RazorTargetAssemblyInfo.cache
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\JwtAuthorizeInfoApi.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\JwtAuthorizeInfoApi\obj\Debug\netcoreapp3.1\staticwebassets\JwtAuthorizeInfoApi.StaticWebAssets.Manifest.cache

@@ -36,7 +36,7 @@ axios.interceptors.request.use(config => {
 
 //全局响应拦截器
 axios.interceptors.response.use(res => {
-    console.log('成功响应', res.data);
+    console.log('成功响应', res);
     //成功响应
     Message({
         type: res.data.state === 'success' ? 'success' : 'error',
@@ -46,6 +46,7 @@ axios.interceptors.response.use(res => {
 },
     err => { 
         const res = err.response;
+        console.log('error',res);
         var message=res.data.Message?res.data.Message:res.statusText
         if (!store.getters['global/errorRes']) {
             //错误响应
