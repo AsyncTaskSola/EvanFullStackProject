@@ -8632,38 +8632,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\P775\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+      "projectUniqueName": "E:\\p775项目\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
       "projectName": "ClientAuthorizeInfo",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
+      "projectPath": "E:\\p775项目\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\ClientAuthorizeInfo.csproj",
+      "packagesPath": "C:\\Users\\P775\\.nuget\\packages\\",
+      "outputPath": "E:\\p775项目\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\ClientAuthorizeInfo\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\P775\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Users\\Administrator\\Desktop\\打印接口\\SmartLight.DqtErp.Print\\Nugets": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DemoList\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
+            "E:\\p775项目\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj": {
+              "projectPath": "E:\\p775项目\\全栈项目\\EvanFullStackProject\\后端\\EvanBackstageApi\\EvanBackstageApi\\EvanBackstageApi.csproj"
             }
           }
         }
@@ -8676,6 +8672,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "IdentityModel": {
             "target": "Package",
@@ -8712,7 +8709,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

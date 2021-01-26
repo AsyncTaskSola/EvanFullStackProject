@@ -24,3 +24,12 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.deps.json
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.csprojAssemblyReference.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.AssemblyInfoInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.AssemblyInfo.cs
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.csproj.CoreCompileInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Entity\obj\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb

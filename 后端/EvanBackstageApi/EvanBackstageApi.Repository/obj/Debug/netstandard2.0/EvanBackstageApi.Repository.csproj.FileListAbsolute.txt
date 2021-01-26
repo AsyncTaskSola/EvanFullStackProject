@@ -40,3 +40,17 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.Repository.deps.json
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.Repository.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.Repository.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.IRepository.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.IRepository.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csprojAssemblyReference.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.AssemblyInfoInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.AssemblyInfo.cs
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CoreCompileInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.csproj.CopyComplete
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.Repository\obj\Debug\netstandard2.0\EvanBackstageApi.Repository.pdb

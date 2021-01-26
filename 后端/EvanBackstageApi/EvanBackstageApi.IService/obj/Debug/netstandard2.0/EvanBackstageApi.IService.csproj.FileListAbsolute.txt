@@ -34,3 +34,15 @@ C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.dll
 C:\Users\Administrator\Desktop\DemoList\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\bin\Debug\netstandard2.0\EvanBackstageApi.IService.deps.json
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\bin\Debug\netstandard2.0\EvanBackstageApi.IService.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\bin\Debug\netstandard2.0\EvanBackstageApi.IService.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\bin\Debug\netstandard2.0\EvanBackstageApi.Entity.pdb
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.csprojAssemblyReference.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.AssemblyInfoInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.AssemblyInfo.cs
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.csproj.CoreCompileInputs.cache
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.csproj.CopyComplete
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.dll
+E:\全栈项目\EvanFullStackProject\后端\EvanBackstageApi\EvanBackstageApi.IService\obj\Debug\netstandard2.0\EvanBackstageApi.IService.pdb

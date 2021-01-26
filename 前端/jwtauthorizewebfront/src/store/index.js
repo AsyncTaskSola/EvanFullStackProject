@@ -7,10 +7,10 @@ import role from './role'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	modules: {
-		global,
-		user,
-		role
-	},
-	strict: process.env.NODE_ENV !== 'production'
+    modules: {
+        global,
+        user,
+        role
+    },
+    strict: process.env.NODE_ENV !== 'production'
 });
